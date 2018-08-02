@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .main{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000000;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius: 300px;
+            animation:circumference 2s linear infinite;
+        }
+
+        @-webkit-keyframes circumference{
+            0%{
+                transform: rotate3d(0,-16,21,0deg);
+            }
+
+            100%{
+                transform: rotate3d(0,-16,21,360deg);
+            }
+        }
+
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transform: rotate3d(86,-16,21,-42deg)translate3d(40px,40px,40px);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+th,td{
+    /*text-align: center;*/
+    vertical-align: middle!important;
+}
+.menu{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ededed;
+}
+.menu span{
+    color: #ededed;
+}
+.menu a{
+    margin-left: 14px;
+}
+form{
+    width: 90%;
+    margin:0 auto;
+}
+.active {
+    background-color: #0055FF;
+    color: white;
+    display: inline-block;
+    width: 80px;
+    font-size: 11px;
+    text-align: center;
+}
+.active:hover{
+    color: white;
+}
+.ebled{
+    color: red;
+}
+h1{
+    width: 90%;
+    margin: 0 auto;
+}

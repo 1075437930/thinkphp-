@@ -1,0 +1,138 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/video.css">
+<div class="Separator_c">
+    <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$toprecommends[0]['id']}>"></a>
+</div>
+<script>
+    $(function(){
+          $('embed').off('hover');
+    })
+</script>
+<div class="container">
+    <article>
+        <!--头部推荐视频start-->
+        <section>
+            <div class="item_b">
+              
+                <img src="<{$toprecommends[0]['img']}>" class="bgimg" />
+                <div>
+                    <h1><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$toprecommends[0]['id']}>"><{$toprecommends[0]['title']}></a></h1>
+
+                    <p class="description"><a
+                            href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$toprecommends[0]['id']}>"><{:htmlspecialchars_decode($toprecommends[0]['description'])}></a></p>
+
+                    <p>
+                        <span>推荐</span><a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$toprecommends[0]['two']['id']}>/type/<{$toprecommends[0]['cate']['id']}>"><{$toprecommends[0]['cate']['name']}></a>
+                    </p>
+                </div>
+            </div>
+            <div class="item_box">
+                <foreach name="toprecommends" item="row">
+                    <if condition="$key neq 0">
+                        <div class="item">
+                            <div class="limit">
+                                <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>">
+                                    <img src="<{$row['img']}>"/>
+                                </a>
+                            </div>
+
+                            <p><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>"> <{$row['title']}></a></p>
+
+                            <div>
+                                <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['two']['id']}>/type/<{$row['cate']['id']}>" class="cate"><{$row['cate']['name']}></a>
+                                <!--点赞收藏start-->
+                                <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['id']}>/type/4"  scrolling="no">
+                                </iframe>
+                                <!--点赞收藏end-->
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </if>
+                </foreach>
+            </div>
+            <div class="clear"></div>
+            <div class="Separator"></div>
+        </section>
+        <!--头部推荐视频end-->
+    </article>
+    <div class="bgw">
+        <div class="Separator_d"></div>
+        <!--为你推荐start-->
+        <section class="foryou">
+            <div class="Separator_h"></div>
+            <foreach name="fors" item="row">
+                <div class="item">
+                    <div class="limit">
+                        <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>">
+                            <img src="<{$row['img']}>"/>
+                        </a>
+                    </div>
+
+                    <p><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>"><{$row['title']}></a></p>
+
+                    <p><a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['two']['id']}>/type/<{$row['cate']['id']}>" class="cate"><{$row['cate']['name']}></a>
+                        <!--点赞收藏start-->
+                        <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['id']}>/type/4"  scrolling="no">
+                        </iframe>
+                        <!--点赞收藏end-->
+                        <div class="clear"></div>
+                    </p>
+                </div>
+            </foreach>
+            <div class="clear"></div>
+            <div class="Separator"></div>
+        </section>
+        <!--为你推荐end-->
+        <!--栏目列表start-->
+        <section>
+            <foreach name="sons" item="row">
+            <div class="v_column">
+                <h1><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['videos'][0]['id']}>" class="tip"><{$row['name']}></a></h1>
+                <figure class="item_fr">
+                    <div class="item_fr_limit">
+                        <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['videos'][0]['id']}>"><img src="<{$row['videos'][0]['img']}>"/></a>
+                    </div>
+                    <figcaption>
+                        <p><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['videos'][0]['id']}>"><{$row['videos'][0]['title']}></a></p>
+                        <span class="yellow">推荐</span>
+                        <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['videos'][0]['two']['id']}>/type/<{$row['videos'][0]['cate']['id']}>"><{$row['videos'][0]['cate']['name']}>   </a>
+                        <!--点赞收藏start-->
+                        <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['videos'][0]['id']}>/type/4"  scrolling="no">
+                        </iframe>
+                        <!--点赞收藏end-->
+
+                    </figcaption>
+                </figure>
+                <div class="v_column_right">
+                    <foreach name="row['videos']" item="row2">
+                    <if condition="$key neq 0">
+                        <div class="item">
+                            <div class="limit">
+                                <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row2['id']}>">
+                                    <img src="<{$row2['img']}>"/>
+                                </a>
+                            </div>
+
+                            <p><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row2['id']}>"> <{$row2['title']}></a></p>
+
+                            <p><a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row2['two']['id']}>/type/<{$row2['cate']['id']}>" class="cate"><{$row2['cate']['name']}></a>
+                                <!--点赞收藏start-->
+                                <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row2['id']}>/type/4"  scrolling="no">
+                                </iframe>
+                                <!--点赞收藏end-->
+                            <div class="clear"></div>
+                            </p>
+                        </div>
+                    </if>
+                    </foreach>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+            </foreach>
+        </section>
+        <!--栏目列表end-->
+    </div>
+</div>
+
+<include file="Public:footer"/>

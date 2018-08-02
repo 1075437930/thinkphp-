@@ -1,0 +1,151 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Search/index.css">
+<div class="container">
+    <aside>
+        <ul>
+            <li>
+                <if condition="$_GET['type'] eq 'all'">
+                    <a href="__URL__/index/key/<{$_GET['key']}>/type/all" class="select">全部</a>
+                    <else/>
+                    <a href="__URL__/index/key/<{$_GET['key']}>/type/all">全部</a>
+                </if>
+            </li>
+            <foreach name="columns" item="row2">
+                <if condition="$row2['typeid'] eq $_GET['type']">
+                  <li><a href="__URL__/index/key/<{$_GET['key']}>/type/<{$row2['typeid']}>" class="select"><{$row2['name']}></a></li>
+                   <else/>
+                  <li><a href="__URL__/index/key/<{$_GET['key']}>/type/<{$row2['typeid']}>"><{$row2['name']}></a></li>
+                </if>
+            </foreach>
+        </ul>
+    </aside>
+    <article>
+        <if condition="$_GET['type'] eq 'all'">
+            <empty name="rows">
+            <p>没有搜索到任何结果</p>
+            <else/>
+            <foreach name="rows" item="row3">
+                <eq name="row3['type']" value="1">
+                    <figure>
+                        <figcaption>
+                            <P><a href="__APP__/Content/artcon/id/<{$row3['id']}>"><span>[文章]</span><span><{$row3['title']}></span></a> </P>
+                            <div class="describe">
+                                <{:mb_substr($row3['content'],0,70,'utf-8')}>
+                            </div>
+                        </figcaption>
+                       <{$row3['img']}>
+                        <div class="clear"></div>
+                    </figure>
+                    <elseif condition="$row3['type'] eq 2"/>
+                    <figure>
+                        <figcaption>
+                            <P><a href="__APP__/Content/musicon/id/<{$row3['id']}>"><span>[音乐]</span><span><{$row3['title']}></span></a></P>
+                            <div class="describe">
+                                <{:mb_substr($row3['description'],0,70,'utf-8')}>
+                            </div>
+                        </figcaption>
+                        <img src="<{$row3['img']}>">
+                        <div class="clear"></div>
+                    </figure>
+                    <elseif condition="$row3['type'] eq 3"/>
+                    <figure>
+                        <figcaption>
+                            <p><span>[动态]</span><span><{$row3['title']}></span></p>
+                            <div class="describe">
+                              <{$row3['content']}>
+                            </div>
+                        </figcaption>
+                        <div class="clear"></div>
+                    </figure>
+                    <elseif condition="$row3['type'] eq 4"/>
+                    <figure>
+                        <figcaption>
+                            <P><a href="__APP__/Content/videcon/id/7/vid/<{$row3['id']}>"><span>[视频]</span><span><{$row3['title']}></span></a></P>
+                            <div class="describe">
+                                <{:mb_substr($row3['description'],0,70,'utf-8')}>
+                            </div>
+                        </figcaption>
+                        <img src="<{$row3['img']}>">
+                        <div class="clear"></div>
+                    </figure>
+                </eq>
+            </foreach>
+            </empty>
+            <elseif condition="$_GET['type'] eq 1"/>
+            <empty name="arts">
+            <p>没有搜索到任何结果</p>
+            <else/>
+            <foreach name="arts" item="row3">
+                <figure>
+                    <figcaption>
+                        <P><a href="__APP__/Content/artcon/id/<{$row3['id']}>"><span>[文章]</span><span><{$row3['title']}></span></a></P>
+                        <div class="describe">
+                            <{:mb_substr($row3['content'],0,70,'utf-8')}>
+                        </div>
+                    </figcaption>
+                    <{$row3['img']}>
+                    <div class="clear"></div>
+                </figure>
+            </foreach>
+            </empty>
+            <elseif condition="$_GET['type'] eq 2"/>
+            <empty name="mus">
+                <p>没有搜索到任何结果</p>
+                <else/>
+            <foreach name="mus" item="row3">
+                <figure>
+                    <figcaption>
+                        <P><a href="__APP__/Content/musicon/id/<{$row3['id']}>"><span>[音乐]</span><span><{$row3['title']}></span></a></P>
+                        <div class="describe">
+                            <{:mb_substr($row3['description'],0,70,'utf-8')}>
+                        </div>
+                    </figcaption>
+                    <img src="<{$row3['img']}>">
+                    <div class="clear"></div>
+                </figure>
+            </foreach>
+            </empty>
+            <elseif condition="$_GET['type'] eq 3"/>
+            <empty name="says">
+                <p>没有搜索到任何结果</p>
+                <else/>
+            <foreach name="says" item="row3">
+                <figure class="say">
+                    <figcaption>
+                        <p><span>[动态]</span></p>
+                        <p>
+                            <img src="<{$row3['user']['img']}>" class="say_head"/>
+                            <a href=""><{$row3['user']['username']}></a>
+                            <div class="clear"></div>
+                        </p>
+                        <div class="describe">
+                            <{$row3['content']}>
+                        </div>
+                    </figcaption>
+                    <div class="clear"></div>
+                </figure>
+            </foreach>
+            </empty>
+            <elseif condition="$_GET['type'] eq 4"/>
+            <empty name="vids">
+                <p>没有搜索到任何结果</p>
+                <else/>
+            <foreach name="vids" item="row3">
+                <figure>
+                    <figcaption>
+                        <P><a href="__APP__/Content/videcon/id/7/vid/<{$row3['id']}>"><span>[视频]</span><span><{$row3['title']}></span></a></P>
+                        <div class="describe">
+                            <{:mb_substr($row3['description'],0,70,'utf-8')}>
+                        </div>
+                    </figcaption>
+                    <img src="<{$row3['img']}>">
+                    <div class="clear"></div>
+                </figure>
+            </foreach>
+            </empty>
+        </if>
+        <div class="showpage"><{$show}><div class="clear"></div></div>
+    </article>
+    <div class="clear"></div>
+</div>
+<include file="Public:footer"/>

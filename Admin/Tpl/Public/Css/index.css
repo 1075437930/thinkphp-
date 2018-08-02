@@ -1,0 +1,22 @@
+
+@media (min-width: 1024px) {
+    html{
+        overflow-y: hidden;
+    }
+}
+
+.leftce{
+    height: 600px;
+    overflow: scroll;
+}
+
+.crumbs{
+    height: 30px;
+    line-height: 30px;
+}
+.Separator{
+    display: none;
+}
+.panel-group .glyphicon{
+    margin-right: 10px;
+}

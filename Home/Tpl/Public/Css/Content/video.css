@@ -1,0 +1,252 @@
+
+.container{
+    width: 100%;
+}
+article{
+    width: 1200px;
+    margin: 0 auto;
+}
+.item_b .bgimg{
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+}
+.bgimg+div{
+    position: relative!important;
+    z-index: 1!important;
+}
+
+
+.Separator_c{
+    height: 150px;
+}
+.nav_ri {
+    position: fixed;
+    right: 20px;
+    top: 50px;
+    z-index: 3;
+}
+
+.nav_ri a:hover{
+    color: #6ED56C;
+}
+nav.nav_ri li{
+    margin-top: 10px;
+
+}
+nav.nav_ri li a {
+    color:white;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 42px;
+    background: rgba(21,21,21,0.5);
+    line-height: 42px;
+    border-radius: 23px;
+}
+.item_b .bgimg+div h1 a {
+    color: white;
+    font-size: 42px;
+}
+.description a{
+    color:#EEEEEE;
+    display: inline-block;
+    width: 1173px;
+    margin-top: 13px;
+}
+.description+p span{
+    color: #6ED56C;
+    border: 1px solid #6ED56C;
+    font-size: 13px;
+    margin-right: 11px;
+}
+.description+p span+a{
+    color: #D7D7D7;
+}
+.description+p{
+    margin-top: 20px;
+}
+.item {
+    width: 250px;
+    z-index: 1;
+    float: left;
+    margin-right: 37px;
+    margin-top: 36px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.limit{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+.item img{
+    width: 100%;
+    height: 150px;
+}
+.item img+p{
+    color: #333333;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.foryou{
+    background-color: white;
+    position: relative;
+
+    width: 1250px;
+    margin: 0 auto;
+
+    background: url('../../Images/recommend_bg.png');
+}
+.cate {
+    color: #999999;
+    font-size: 13px;
+    float: left;
+    margin-top: 4px;
+}
+.cate+iframe{
+    float: left;
+    width: 89px;
+}
+.item_box{
+    position: absolute;
+    z-index:2;
+}
+.bgw {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    margin-top: 57px;
+}
+.Separator_d {
+    height: 200px;
+}
+.Separator_h {
+    height: 60px;
+}
+.foryou .item {
+    margin-left: 24px;
+    background-color: white;
+}
+.foryou .item p {
+    width: 90%;
+    margin: 0 auto;
+}
+.item a:hover p{
+    color:#6476A7 ;
+}
+.item a img{
+    transition: transform 0.5s  linear 0s;
+}
+.item a:hover img{
+    transform: scale(1.2);
+}
+.fab i {
+    background: url("../../Images/20170329151503.png") no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    vertical-align: middle;
+}
+.fab span {
+    font-size: 14px;
+    color: #999999;
+}
+.limit+p a{
+    color: #333333;
+    font-size: 13px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.foryou+section {
+    width: 1200px;
+
+    margin: 0 auto;
+    margin-top: 25px;
+}
+.v_column h1 .tip {
+    color: #E966AE;
+    font-size: 31px;
+}
+
+.item_fr {
+    float: left;
+    width: 50%;
+    margin-top: 25px;
+}
+.item_fr_limit {
+    width: 100%;
+    height: 363px;
+    overflow: hidden;
+}
+.item_fr_limit img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s  linear 0s;
+}
+.item_fr_limit a:hover img{
+    transform: scale(1.2);
+}
+.v_column_right {
+    float: left;
+    width: 50%;
+
+    margin-top: 25px;
+}
+.v_column_right .item{
+    margin-top: 0;
+    margin-bottom: 10px;
+    float: right!important;
+    margin-left: 49px!important;
+    margin-right: 0;
+}
+hr {
+    background: #FFAA65;
+    height: 1px;
+    width: 95%;
+}
+.v_column {
+    margin-top: 19px;
+    border-bottom: 1px solid #FFBC4A;
+    padding-bottom: 12px;
+}
+.yellow{
+    color: #FFD100;
+    border: 1px solid #FFD100;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.Separator_c a{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index:1;
+}
+.item_fr a {
+    color: #333333;
+}
+iframe.fabcoll {
+    width: 89px;
+}
+.yellow+a{
+    font-size: 14px;
+    color: #999999;
+
+}
+.yellow,.yellow+a,.yellow+a+iframe{
+    float: left;
+}
+.yellow,.yellow+a{
+    margin-top: 3px;
+}

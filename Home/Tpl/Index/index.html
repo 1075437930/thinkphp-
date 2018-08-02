@@ -1,0 +1,110 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/index.css">
+<script type="text/javascript" src="../Public/Js/indexslide.js"></script>
+<div class="container">
+    <article>
+        <!--幻灯片展示start-->
+        <section class="slidesec">
+            <div class="main">
+                <ul class="imgbox">
+                    <foreach name="all" item="row">
+                        <li>
+                        <a href="__APP__/Content/artcon/id/<{$row['id']}>"><{$row['img']}></a>
+                        <p><{$row['title']}></p>
+                        </li>
+                    </foreach>
+                </ul>
+                <ul class="num"></ul>
+                <div class="btn btn-le"><</div>
+                <div class="btn btn-ri">></div>
+            </div>
+        </section>
+        <!--幻灯片展示end-->
+        <section class="con">
+            <article>
+                <!--热门文章start-->
+                <section>
+                    <p class="sec_heading">热门文章</p>
+                    <div class="hot_art">
+                        <foreach name="remens" item="val">
+                            <figure>
+                                <a href="__APP__/Content/artcon/id/<{$val['id']}>">
+                                <{$val['img']}>
+                                <figcaption><{:mb_substr($val['title'],0,20,'utf-8')}>
+                                </figcaption>
+                                </a>
+                            </figure>
+                        </foreach>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+                <!--热门文章end-->
+
+                <!--热门视频start-->
+                <section>
+                    <p class="sec_heading">热门视频</p>
+                    <div class="hot_video">
+                    <foreach name='rvids' item="val2">
+                        <figure>
+                            <img src="<{$val2['img']}>">
+                            <a href="__APP__/Content/videcon/vid/<{$val2['id']}>/id/7" class="play"></a>
+                            <figcaption><a href="__APP__/Content/videcon/vid/<{$val2['id']}>/id/7">
+
+                            <{:mb_substr($val2['title'],0,20,'utf-8')}></a>
+
+                            </figcaption>
+                        </figure>
+                    </foreach>   
+                        <div class="clear"></div>
+                    </div>
+                </section>
+                <!--热门视频end-->
+
+                <!--热门单曲start-->
+                <section>
+                    <p class="sec_heading">热门单曲</p>
+                    <div class="hot_music">
+                    <foreach name='mus' item='val3'>
+                        <figure>
+                            <img src="<{$val3['img']}>">
+                            <figcaption>
+                                <a href="__APP__/Content/musicon/id/<{$val3['id']}>"><{$val3['title']}></a>
+                                <p><{:mb_substr($val3['description'],0,20,'utf-8')}></p>
+                            </figcaption>
+                            <div class="clear"></div>
+                        </figure>
+                    </foreach>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+                <!--热门单曲end-->
+                
+
+            </article>
+            <aside>
+                <section>
+                    <p class="sec_heading">最新动态</p>
+                    <div class="hot_dynamic">
+                    <foreach name='dys' item="val4">
+                        <figure>
+                            <figcaption>
+                                <p><{$val4['username']}></p>
+                                <div class="dynamic_con"><{$val4['content']}></div>
+                            </figcaption>
+                            <img src="<{$val4['img']}>">
+                            <div class="clear"></div>
+                        </figure>
+                    </foreach>
+                    </div>
+                </section>
+
+                 <!-- 广告位start -->
+                <div class="advertisement">广告位X1</div>
+                <!-- 广告位end -->
+            </aside>
+            <div class="clear"></div>
+        </section>
+    </article>
+
+</div>
+<include file="Public:footer"/>

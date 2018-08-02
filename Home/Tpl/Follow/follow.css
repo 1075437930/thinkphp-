@@ -1,0 +1,45 @@
+/*点赞收藏样式start*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    font-family: '微软雅黑';
+    border: 0;
+}
+.btn{
+    width: 74px;
+    height: 33px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.have{
+    background-color: #1C9EEE;
+    border: 1px solid #3B88C3;
+    color: white;
+}
+
+.now {
+    background: url(2017-04-12_144124.png) no-repeat;
+    border: 1px solid #E6ECF0;
+    background-color: #FAFCFC;
+    background-position: 12px;
+    text-indent: 21px;
+}
+.tip{
+    position: fixed;
+    height: 40px;
+    width: 80px;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -20px;
+    border-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+/*点赞收藏样式end*/

@@ -1,0 +1,50 @@
+/*点赞收藏样式start*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    font-family: '微软雅黑';
+    border: 0;
+}
+
+.fabcoll{
+    float: right;
+}
+.fab_tb {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url("public-24.png") no-repeat;
+
+    vertical-align: middle;
+}
+.fab_tb+span,.coll_tb+span{
+    font-size: 13px;
+    color: #777777;
+}
+.coll_tb {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url("public-24.png") no-repeat;
+
+    vertical-align: middle;
+}
+.tip{
+    position: fixed;
+    height: 40px;
+    width: 80px;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -20px;
+    border-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+/*点赞收藏样式end*/

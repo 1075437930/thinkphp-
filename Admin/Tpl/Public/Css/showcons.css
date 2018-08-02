@@ -1,0 +1,12 @@
+.menu{
+    margin-top: 10px!important;
+}
+.empty{
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: peachpuff;
+}
+td,th{
+    text-align: center!important;
+}

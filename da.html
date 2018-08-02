@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .fon {
+            position: fixed;
+            color:#000000;
+            font-size: 6em;
+            display: none;
+            font-weight: bold;
+        }
+        span.fon.fon1 {
+            left:20%;
+
+        }
+        span.fon.fon2 {
+            left: 40%;
+        }
+        span.fon.fon3 {
+            left: 60%;
+        }
+        span.fon.fon4 {
+            left: 80%;
+        }
+    </style>
+    <script src="Public/Js/jquery.js"></script>
+    <script>
+        $(function(){
+            T=setInterval(function(){
+                $('.fon1').fadeIn().animate({'top':'40%'},'1s',function() {
+                    $('.fon2').fadeIn().animate({'top': '40%'}, '1s', function () {
+                        $('.fon3').fadeIn().animate({'top': '40%'}, '1s', function () {
+                            $('.fon4').fadeIn().animate({'top': '40%'}, '1s', function () {
+                                $('.fon').fadeOut(function(){
+
+                                });
+                            });
+                        });
+                    });
+                });
+                clearInterval(T);
+            });
+        });
+    </script>
+</head>
+<body>
+<span class="fon fon1">文</span>
+<span class="fon fon2">字</span>
+<span class="fon fon3">下</span>
+<span class="fon fon4">落</span>
+</body>
+</html>

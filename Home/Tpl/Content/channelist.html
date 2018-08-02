@@ -1,0 +1,93 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/channelist.css">
+<div class="Separator"></div>
+<div class="container">
+    <article>
+        <section>
+            <div class="yin_top">
+                <a href="" class="goback" onclick="history.back()"><span> <</span>返回</a>
+                <!--分享start-->
+                <div class="share_box">
+                    <div class="share">
+                        <div class="bdsharebuttonbox" data-tag="share_1">
+                            <a class="bds_mshare" data-cmd="mshare"></a>
+                            <a class="bds_qzone" data-cmd="qzone" href="#"></a>
+                            <a class="bds_tsina" data-cmd="tsina"></a>
+                            <a class="bds_baidu" data-cmd="baidu"></a>
+                            <a class="bds_renren" data-cmd="renren"></a>
+                            <a class="bds_tqq" data-cmd="tqq"></a>
+                            <a class="bds_more" data-cmd="more">更多</a>
+                            <a class="bds_count" data-cmd="count"></a>
+                        </div>
+                        <script>
+                            window._bd_share_config = {
+                                common: {
+                                    bdText: "<{$art['title']}>",
+                                    bdDesc: '',
+                                    bdUrl: "",
+                                    bdPic: ''
+                                },
+                                share: [{
+                                    "bdSize": 16
+                                }],
+                                selectShare: [{
+                                    "bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
+                                }]
+                            }
+                            with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                        </script>
+                    </div>
+                </div>
+                <!--分享end-->
+                <div class="clear"></div>
+            </div>
+            <div class="channel_info">
+                <h1><{$channel['name']}></h1>
+                <figure>
+                    <img src="__PUBLIC__/Uploads/column/<{$channel['img']}>">
+                    <figcaption>
+                        <p>频道简介</p>
+
+                        <p>echo独家3D音乐，颠覆你的听觉体验</p>
+                    </figcaption>
+                    <div class="clear"></div>
+                </figure>
+            </div>
+        </section>
+        <div class="Separator_b"></div>
+        <section>
+            <div class="newandhot">
+                <if condition="$order eq 'hot'">
+                    <a href="__URL__/channelist/id/<{$_GET['id']}>/order/hot" style="border-bottom: 3px solid #6ED56C">最热</a>
+                    <else/>
+                    <a href="__URL__/channelist/id/<{$_GET['id']}>/order/hot">最热</a>
+                </if>
+                <if condition="$order eq 'new'">
+                    <a href="__URL__/channelist/id/<{$_GET['id']}>/order/new" style="border-bottom: 3px solid #6ED56C">最新</a>
+                    <else/>
+                    <a href="__URL__/channelist/id/<{$_GET['id']}>/order/new">最新</a>
+                </if>
+            </div>
+            <!--音乐列表start-->
+            <div class="list_box">
+                <foreach name="mus" item="row">
+                    <div class="list_item">
+                        <a href="__URL__/musicon/id/<{$row['id']}>">
+                            <img src="<{$row['img']}>">
+
+                            <p><{$row['title']}></p>
+
+                            <p><span class="green"><{$channel['name']}></span><span>频道</span></p>
+                        </a>
+                    </div>
+                </foreach>
+
+                <div class="clear"></div>
+            </div>
+            <div class="showpage"><{$show}></div>
+            <!--音乐列表end-->
+        </section>
+
+    </article>
+</div>
+<include file="Public:footer"/>

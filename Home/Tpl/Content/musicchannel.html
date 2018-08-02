@@ -1,0 +1,51 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/musicchannel.css">
+<script src="../Public/Js/Content/musicchannel.js"></script>
+<div class="Separator"></div>
+<div class="container">
+    <!--导航start-->
+    <div class="music_nav">
+        <a href="__URL__/music/id/<{$_GET['id']}>">发现</a>
+        <foreach name="channels" item="row">
+            <a href="__URL__/musicchannel/id/<{$_GET['id']}>/channel/<{$row['id']}>"><{$row['name']}></a>
+        </foreach>
+    </div>
+    <!--导航end-->
+
+    <article>
+        <div class="Separator"></div>
+        <!--分频道列表start-->
+        <section>
+            <foreach name="sons" item="row">
+            <div class="channel_item">
+                <figure class="channel_img">
+                    <a href="__URL__/channelist/id/<{$row['id']}>">
+                        <img src="__PUBLIC__/Uploads/column/<{$row['img']}>">
+                         <figcaption><{$row['name']}></figcaption>
+                         <i class="disk"></i>
+                         <i></i>
+                    </a>
+                </figure>
+                <div class="channel_item_ri">
+                    <p class="channel_item_ri_heading">频道热门音乐</p>
+                        <foreach name="row['mus']" item="row3">
+                            <figure class="music_item">
+                                <a href="__URL__/musicon/id/<{$row3['id']}>">
+                                    <img src="<{$row3['img']}>">
+                                    <figcaption><{$row3['title']}>-<{$row3['source']}></figcaption>
+                                </a>
+                                <div class="clear"></div>
+                            </figure>
+                        </foreach>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="Separator_b"></div>
+            </foreach>
+            <div class="showpage"><{$show}></div>
+        </section>
+        <!--分频道列表end-->
+    </article>
+</div>
+<include file="Public:footer"/>

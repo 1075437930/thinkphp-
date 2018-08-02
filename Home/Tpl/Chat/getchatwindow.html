@@ -1,0 +1,22 @@
+<div class="chatwindow_heading">
+    <i class="reback"></i>
+    <if condition="!empty($row['img'])">
+        <img src="<{$row['img']}>">
+        <else/>
+        <img src="__TMPL__/Chat/po.jpg">
+    </if>
+    <span><{$row['username']}></span>
+    <div class="clear"></div>
+</div>
+
+<div  class="chat_con">
+
+</div>
+
+<div class="chat_bot" vid="<{$row['id']}>">
+    <div contenteditable="true" id="saytext3"></div>
+    <i class="chat_expression"></i>
+    <button class="chat_btn">发送</button>
+    <div class="clear"></div>
+</div>
+

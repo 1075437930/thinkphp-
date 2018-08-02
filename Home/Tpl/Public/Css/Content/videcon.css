@@ -1,0 +1,271 @@
+/*遮板样式start*/
+.cover_plate{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: #6A6464;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    line-height: 120px;
+}
+/*遮板样式end*/
+
+
+nav.nav_ri li a {
+    color:white;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 42px;
+    background: rgba(21,21,21,0.5);
+    line-height: 42px;
+    border-radius: 23px;
+}
+nav.nav_ri li{
+    margin-top: 10px;
+
+}
+.nav_ri {
+    position: fixed;
+    right: 20px;
+    top: 50px;
+    z-index: 3;
+}
+
+.nav_ri a:hover{
+    color: #6ED56C;
+}
+.v_top h1 {
+    color: #333333;
+    font-size: 1.8em;
+    margin-bottom: 11px;
+}
+.container{
+    width: 1030px;
+}
+.v_top time{
+    color: #999999;
+    font-size: 14px;
+}
+.v_top time+span{
+    color: #999999;
+    font-size: 14px;
+}
+.v_top .cate{
+    color:#4A90E2;
+    font-size: 14px;
+}
+.fab i{
+    background:url("../../Images/20170329151503.png") no-repeat;
+    display: inline-block;
+    width: 20px;
+    height:20px;
+    vertical-align: middle;
+
+}
+.fab span{
+    font-size: 14px;
+    color: #999999;
+}
+.fab+a i{
+    background:url("../../Images/20170329151732.png") no-repeat;
+    display: inline-block;
+    width: 20px;
+    height:20px;
+    vertical-align: middle;
+}
+.fab+a span{
+    font-size: 14px;
+    color: #999999;
+}
+.v_top time,.v_top span,.v_top a{
+    margin-right: 10px;
+}
+.v_top div{
+
+}
+.intro{
+    margin-top: 20px;
+    color: #333333;
+}
+.intro p {
+    font-size: 17px;
+    color: #333333;
+}
+embed{
+    width: 100%;!important;
+
+}
+/*幻灯片样式start*/
+.slide{
+
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ededed;
+}
+.imgbox{
+    position: absolute;
+}
+.imgbox li{
+    float: left;
+    width:247px;
+    height:150px;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.imgbox li p{
+    position: absolute;
+    bottom: 0;
+    background: rgba(34,34,34,0.5);
+    color: white;
+    width: 247px;
+    height: 30px;
+    line-height: 30px;
+    /*opacity: 0.5;*/
+    font-size: 13px;
+    text-indent: 10px;
+}
+.imgbox li img{
+    width: 100%;
+    height: 100%;
+}
+.page{
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    display: none;
+}
+.tal{
+    float: left;
+    background-color:#000000;
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #ededed;
+}
+.now{
+    background-color: red;
+    color: #000000;
+}
+.btn {
+    position: absolute;
+    top: 50%;
+    font-size: 3em;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background:rgba(0,0,0,0.5) ;
+    color: white;
+    margin-top: -25px;
+    display: none;
+    cursor: pointer;
+    line-height: 50px;
+}
+.slide:hover .btn{
+    display: block;
+}
+.le{
+    left: 0;
+}
+.ri{
+    right: 0;
+}
+.about>p {
+    font-size: 17px;
+    border-bottom: 1px solid #99A2AA;
+    margin-bottom: 14px;
+    color: #333;
+    margin-top: 60px;
+}
+/*幻灯片样式end*/
+/*评论样式start*/
+.comment img,.comment form{
+    float: left;
+}
+.comment img {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+.comment_box{
+    width: 97%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.comment_box .heading{
+    color: #333333;
+    font-weight: bold;
+    font-size: 18px;
+}
+.comment_box .heading span {
+    color: #F8595E;
+    font-size: 24px;
+    margin-right: 5px;
+}
+.comment form{
+    width: 87%;
+}
+.comment textarea{
+    border: 1px solid #BFB9B9;
+    width: 100%;
+    height: 150px;
+    resize: none;
+}
+.form-group_t {
+    background-color: #F4F5F6;
+    height: 34px;
+}
+.form-group_t input {
+    float: right;
+    background-color: #3F404C;
+    color: white;
+    border: 0;
+    height: 100%;
+    width: 107px;
+}
+.comment_info .item{
+    border-bottom: 1px solid #F2F2F2;
+    padding-top: 10px;
+}
+.comment_info .item img,.comment_info .item_con{
+    float: left;
+}
+.comment_info .item img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    display: block;
+}
+.comment_info .item .item_con{
+    width: 87%;
+    font-size: 13px;
+}
+.comment_info{
+    margin-top: 20px;
+}
+.comment_info .item .item_con a{
+    color: #406599;
+    font-size: 13px;
+}
+.comment_info .item .item_con p{
+    margin-bottom: 10px;
+}
+.comment_info .item .item_con .user{
+    margin-right: 5px;
+}
+/*评论样式end*/
+
+.vdf{
+    overflow:hidden!important;
+    height:600px;
+    width: 100%;
+}

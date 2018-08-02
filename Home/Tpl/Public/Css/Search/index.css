@@ -1,0 +1,65 @@
+.container {
+    margin-top: 30px;
+}
+
+.container aside{
+    width:120px;
+    float: left;
+    margin-right: 20px;
+}
+
+.container article {
+    width: 700px;
+    float: left;
+}
+
+.container aside ul li{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 11px;
+}
+.container aside ul a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    text-align: center;
+    line-height: 29px;
+    border-radius: 10px;
+}
+.container article figure{
+    border-bottom: 1px dashed #CCCCCC;
+    padding: 10px 0;
+}
+.container article figure figcaption{
+    float: left;
+    width: 70%;
+    height: 100px;
+    margin-right: 35px;
+}
+.container article figure>img{
+    float: right;
+    width: 60px;
+    height: 60px;
+}
+figure figcaption .describe{
+    color: #999999;
+}
+.select{
+    background-color: #6ED56C;
+    color: #ffffff!important;
+}
+.say .say_head{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.say .say_head+a {
+    float: left;
+    margin-top: 14px;
+    margin-left: 15px;
+}
+.say p:nth-child(2){
+    margin-top: 20px;
+}

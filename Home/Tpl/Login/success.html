@@ -1,0 +1,30 @@
+<include file="Public:header"/>
+<style>
+    .succ {
+        text-align: center;
+        height: 200px;
+        line-height: 200px;
+        font-weight: bold;
+        font-size: 21px;
+        color: #6ED56C;
+    }
+</style>
+<script>
+    //自动跳转
+    $(function(){
+        i=3;
+        T=setInterval(function(){
+            if(i==0){
+                location="<{:U('Index/index')}>"
+            }else{
+                i--;
+                $('.succ span').html(i)
+            }
+
+        },1000)
+    })
+</script>
+<div class="container">
+    <p class="succ">注册成功!<span>3</span>秒后自动跳转</p>
+</div>
+<include file="Public:footer"/>

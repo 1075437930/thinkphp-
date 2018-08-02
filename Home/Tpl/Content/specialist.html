@@ -1,0 +1,21 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/specialist.css">
+<div class="container">
+    <section class="special_list">
+        <foreach name="rows" item="row2">
+            <figure>
+                <a href="__URL__/specialinfo/id/<{$row2['id']}>">
+                    <img src="<{$row2['img']}>">
+                    <figcaption>
+                        <p><{$row2['name']}></p>
+                        <p class="describe">
+                            <{:mb_substr($row2['describe'],0,40,'utf-8')}>
+                        </p>
+                    </figcaption>
+                </a>
+            </figure>
+        </foreach>
+        <div class="clear"></div>
+    </section>
+</div>
+<include file="Public:footer"/>

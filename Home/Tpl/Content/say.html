@@ -1,0 +1,363 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/say.css">
+<style>
+    .qqFace table td {
+        padding: 0px;
+    }
+
+    .qqFace table td img {
+        cursor: pointer;
+        border: 1px #fff solid;
+    }
+
+    .qqFace table td img:hover {
+        border: 1px #0066cc solid;
+    }
+</style>
+<script src="__PUBLIC__/Js/jquery-migrate-1.2.1.min.js"></script>
+<script>
+    var sayinsert="<{:U('sayinsert')}>";
+</script>
+<script src="../Public/Js/Content/say.js"></script>
+<script src="../Public/Js/jQuery-qqFace933020160323/qqFace/js/jquery.qqFace.js"></script>
+<div class="Separator"></div>
+<div class="container">
+    <article>
+        <!--导航start-->
+        <section class="say_nav">
+            <nav>
+                <ul>
+                    <li>
+                        <a href=""><i class="square_tb"></i> <span>广场</span></a>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:" class="letter"><i class="si_tb"></i><span>私信</span></a>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!--加载文件start-->
+            <link rel="stylesheet" href="__TMPL__/Chat/chat.css">
+            <script src="__TMPL__/Chat/chat.js"></script>
+            <script src="__TMPL__/Chat/jQuery-qqFace933020160323/qqFace/js/jquery-migrate-1.2.1.min.js"></script>
+            <script src="__TMPL__/Chat/jQuery-qqFace933020160323/qqFace/js/jquery.qqFace.js"></script>
+            <!--加载文件end-->
+
+            <script>
+                var login="<{$_SESSION['login']}>";
+                var getchatwindow="<{:U('Chat/getchatwindow')}>";
+                var addorsavechat="<{:U('Chat/addorsavechat')}>";
+                var getchat="<{:U('Chat/getchat')}>";
+                var getchatlist="<{:U('Chat/getchatlist')}>";
+                var chooseuserwindow="<{:U('Chat/chooseuserwindow')}>";
+                var getuser="<{:U('Chat/getuser')}>";
+                //        qq表情插件的网站绝对路径
+                var headpath='/tp/Home/Tpl/Chat/jQuery-qqFace933020160323/qqFace/arclist/';
+            </script>
+
+            <!--弹出框模板start-->
+            <div class="chat">
+                <div class="chat_heading">
+                    <span>私信</span>
+                    <div class="chat_close">X</div>
+                    <button>新私信</button>
+                </div>
+                <div class="chat_item_box">
+                    <foreach name="chats" item="row">
+                        <figure vid="<{$row['user']['id']}>">
+                            <if condition="!empty($row['user']['img'])">
+                                <img src="<{$row['user']['img']}>">
+                                <else/>
+                                <img src="__TMPL__/Chat/po.jpg">
+                            </if>
+                            <figcaption><{$row['user']['username']}></figcaption>
+                            <div class="clear"></div>
+                        </figure>
+                    </foreach>
+                </div>
+            </div>
+            <div class="chat_modal"></div>
+            <div class="chat_tip"></div>
+            <!--弹出框模板end-->
+
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="搜索">
+                    <i></i>
+                </div>
+            </form>
+            <div class="clear"></div>
+        </section>
+        <!--导航end-->
+        <!--主体部分start-->
+        <section class="main">
+            <article class="wrap_ar">
+                <aside>
+                    <!--当前用户框start-->
+                    <script src="__TMPL__/HeadUpload/ajaxfileupload.js"></script>
+                    <!--加载jcrop图片裁剪插件start-->
+                    <link rel="stylesheet"
+                          href="__TMPL__/HeadUpload/jcrop/css/jquery.Jcrop.css">
+                    <script src="__TMPL__/HeadUpload/jcrop/js/jquery.Jcrop.js"></script>
+                    <!--加载jcrop图片裁剪插件end-->
+                    <script>
+                        var site='/jin';
+
+                        var ajaxupload = "<{:U('HeadUpload/ajaxupload')}>";
+                        var cutimg = "<{:U('HeadUpload/cutimg')}>";
+                        var imgdel = "<{:U('HeadUpload/imgdel')}>";
+                        var revokeimg="<{:U('HeadUpload/revokeimg')}>";
+                    </script>
+                    <link href="__TMPL__/HeadUpload/headupload.css" rel="stylesheet">
+                    <script src="__TMPL__/HeadUpload/headupload.js"></script>
+                    <section class="user_box">
+                        <if condition="$_SESSION['login'] eq 1">
+                        <div class="xblue">
+                            <eq name="_SESSION['login']"  value="1">
+                                <div class="blue">
+                                    <if condition="empty($_SESSION['img'])">
+                                        <figure class="upload">
+                                            <img src="../Public/Images/2017-04-11_082227.png">
+
+                                            <div class="prompt">上传头像</div>
+                                            <ul>
+                                                <i></i>
+                                                <li>上传照片</li>
+                                                <input type="file" name="img" id="file1">
+                                                <li class="del">取消</li>
+                                            </ul>
+                                        </figure>
+                                        <else/>
+                                        <figure class="head">
+                                            <img src="<{$_SESSION['img']}>">
+                                            <ul>
+                                                <i></i>
+                                                <li class="revoke">撤销头像</li>
+                                                <li class="del">取消</li>
+                                            </ul>
+                                        </figure>
+                                    </if>
+                                    <div class="cutpop">
+                                        <p>裁剪头像 <span class="cutclose">X</span></p>
+
+                                        <div class="cutoperation">
+                                            <img id="element_id" src="" class="original">
+
+                                            <div class="preview">
+                                                <p>裁剪预览</p>
+
+                                                <div class="preview_contain">
+                                                    <img src="" class="jcrop-preview">
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="cut_bot">
+                                            <form>
+                                                <input type="hidden" name="file">
+                                                <input type="hidden" id="x" name="x"/>
+                                                <input type="hidden" id="y" name="y"/>
+                                                <input type="hidden" id="w" name="w"/>
+                                                <input type="hidden" id="h" name="h"/>
+                                                <button type="button" class="cutbtn cutdel">取消</button>
+                                                <button type="button" class="cutbtn cutok">应用</button>
+                                            </form>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="headupmodal"></div>
+                            </eq>
+                        </div>
+                        <div>
+                            <span class="Sq"></span>
+                            <a href=""><{$_SESSION['username']}></a>
+                        </div>
+                        <p>
+                            <a href="">
+                                <span class="fi">推文</span>
+                                <span><{$saynum}></span>
+                            </a>
+                            <a href="">
+                                <span class="fi">正在关注</span>
+                                <span><{$folnum}></span>
+                            </a>
+                            <a href="">
+                                <span class="fi">关注者</span>
+                                <span><{$myfolnum}></span>
+                            </a>
+                        </p>
+                            <else/>
+                            <p class="quick_hd"></p>
+                            <p class="quick">赶紧登录发表自己的动态吧</p>
+                        </if>
+                    </section>
+                    <!--当前用户框end-->
+                    <!--热门推文start-->
+                    <section class="hot_tui">
+                        <p>热门话题</p>
+                        <ul>
+                            <foreach name="hotweets" item="row">
+                                  <li><a href=""><{$row['content']}></a></li>
+                            </foreach>
+                        </ul>
+                    </section>
+                    <!--热门推文end-->
+                </aside>
+                <article>
+                    <!--发表推文start-->
+                    <section class="Publish_box">
+                        <if condition="!empty($_SESSION['img'])">
+                            <img src="<{$_SESSION['img']}>">
+                            <else/>
+                            <img src="../Public/Images/po.jpg">
+                        </if>
+                        <form class="form_a">
+                            <div class="form-group">
+                                <input type="text" value="有什么新鲜事?">
+                                <i></i>
+                            </div>
+                        </form>
+
+                        <script src="/jin/Public/Js/ajaxuploadpreview/multipleimg.js"></script>
+                        <link rel="stylesheet" href="/jin/Public/Js/ajaxuploadpreview/multipleimg.css">
+                        <script>
+                            $(function(){
+
+                                multipleimg('.source_show','/jin/Public/Js/ajaxuploadpreview/');
+                            });
+                        </script>
+                        <div class="tip"></div>
+                        <form class="form_b" method="post">
+                            <div class="form-group">
+                                <div contenteditable="true"  class="input" id="saytext"  maxlength="400"></div>
+                                <i class="expression_tb"></i>
+                            </div>
+                            <div class="source_show">
+
+                            </div>
+                            <input type="file" id='file2' name="file">
+
+                            <div class="form-group">
+                                <div class="mask"></div>
+                                <div class="btn_mask"></div>
+                                <i class="video_tb"></i>
+                                <i class="pic_tb"></i>
+                                <i class="mus_tb"></i>
+                                <a href="javascript:"><span>#</span>话题</a>
+                                <input type="button" value="发表">
+                                <span class="font_num">400</span>
+                            </div>
+                        </form>
+                        <div class="clear"></div>
+                    </section>
+                    <!--发表推文end-->
+                    <script>
+                        var getmoresay="<{:U('getmoresay')}>"
+                    </script>
+
+                    <!--推文列表start-->
+                    <section class="says_box">
+                        <foreach name="says" item="row">
+                            <figure class="sat_item" vid="<{$row['id']}>">
+                                <if condition="empty($row['user']['img'])">
+                                    <img src="../Public/Images/po.jpg">
+                                    <else/>
+                                    <img src="<{$row['user']['img']}>">
+                                </if>
+                                <figcaption>
+                                    <p class="say_heading"><a><{$row['user']['username']}></a>
+                                        <time><{:date('Y-m-d H:i:s',$row['inputtime'])}></time>
+                                    </p>
+                                    <p><{:htmlspecialchars_decode($row['content'])}></p>
+                                    <div class="source">
+                                        <{:htmlspecialchars_decode($row['source'])}>
+                                    </div>
+                                    <if condition="!empty($row['forward'])">
+                                        <div class="forward" vid="<{$row['forward']['id']}>">
+                                            <img src="<{$row['forward']['user']['img']}>">
+                                            <figcaption>
+                                                <p class="say_heading"><a><{$row['forward']['user']['username']}></a><time><{:date('Y-m-d H:i:s',$row['forward']['inputtime'])}></time></p>
+                                                <p><{$row['forward']['content']}></p>
+                                                <div class="source">
+                                                    <{:htmlspecialchars_decode($row['forward']['source'])}>
+                                                </div>
+                                            </figcaption>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </if>
+                                    <div class="opt">
+                                        <i class="replay_tb" vid="<{$row['id']}>"></i>
+                                        <i class="share_tb"></i>
+                                        <!--加载点赞分享模块start-->
+                                        <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['id']}>/type/3"
+                                                scrolling="no">
+                                        </iframe>
+                                        <!--加载点赞分享模块end-->
+                                        <div class="clear"></div>
+                                    </div>
+                                </figcaption>
+                                <div class="clear"></div>
+                            </figure>
+                        </foreach>
+                    </section>
+
+                    <!--分享弹框start-->
+                    <div class="share_box">
+                        <p class="share_box_heading">转发动态</p>
+                        <div class="share_comm">
+                            <div contenteditable="true" id="saytext1">
+                                评论几句
+                            </div>
+                            <i class="expression"></i>
+                        </div>
+                        <div class="share_con">
+
+                        </div>
+                        <div>
+                            <button>转发</button>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!--分享弹框end-->
+
+                    <script>
+                        var replaybox="<{:U('replaybox')}>";
+                    </script>
+                    <!--回复弹框start-->
+                    <iframe class="replay_box" ></iframe>
+                    <!--回复弹框end-->
+                    <!--推文列表end-->
+                </article>
+            </article>
+            <aside>
+                <!--推荐关注start-->
+                <section class="recomm_follow">
+                    <div class="recomm_follow_hd"><span>推荐关注</span></div>
+                    <foreach name="recomms" item="row">
+                        <figure class="recomm_item">
+                            <if condition="empty($row['img'])">
+                                  <img src="../Public/Images/po.jpg">
+                                  <else/>
+                                  <img src="<{$row['img']}>">
+                            </if>
+                            <figcaption>
+                                <p><a href=""><{$row['username']}></a></p>
+                                <iframe class='follow' src="__APP__/Follow/index/id/<{$row['id']}>/type/1"
+                                        scrolling="no" style="float: right">
+                                </iframe>
+                            </figcaption>
+                            <div class="clear"></div>
+                        </figure>
+                    </foreach>
+                </section>
+                <!--推荐关注end-->
+            </aside>
+            <div class="clear"></div>
+        </section>
+        <!--主体部分end-->
+    </article>
+</div>
+<include file="Public:footer"/>

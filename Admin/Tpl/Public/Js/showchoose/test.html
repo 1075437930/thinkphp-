@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.js"></script>
+    <script src="main.js"></script>
+
+</head>
+<body>
+<form action="__URL__/test1" method="post" enctype="multipart/form-data">
+    <input type="file" onchange="previewImage(this)"  id="previewImg" name="img">
+
+    <!--用来显示选择的图片的盒子-->
+    <div id="preview"></div>
+
+    <br/>
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

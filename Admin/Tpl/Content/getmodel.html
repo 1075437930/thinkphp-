@@ -1,0 +1,9 @@
+<if condition="isset($t)">
+    <option value="" disabled>选择</option>
+    <option value="<{$t[id]}>"><{$t[name]}></option>
+    <else/>
+    <option value="" disabled>选择</option>
+    <foreach name="rows" item="row">
+        <option value="<{$row[id]}>" ><{$row[name]}></option>
+    </foreach>
+</if>

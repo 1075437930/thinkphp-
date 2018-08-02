@@ -1,0 +1,18 @@
+<div class="chat_heading">
+    <span>私信</span>
+    <div class="chat_close">X</div>
+    <button>新私信</button>
+</div>
+<div class="chat_item_box">
+    <foreach name="chats" item="row">
+        <figure vid="<{$row['user']['id']}>">
+            <if condition="!empty($row['user']['img'])">
+                <img src="<{$row['user']['img']}>" >
+                <else/>
+                <img src="__TMPL__/Chat/po.jpg" />
+            </if>
+            <figcaption><{$row['user']['username']}></figcaption>
+            <div class="clear"></div>
+        </figure>
+    </foreach>
+</div>

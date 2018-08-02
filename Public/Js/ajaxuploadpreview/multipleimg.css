@@ -1,0 +1,28 @@
+.uploaditem {
+    border: 1px solid #ededed;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    position: relative;
+    width: 300px;
+}
+.uploaditem img,.uploaditem audio,.uploaditem video,.uploaditem object{
+    width: 100%;
+}
+.uploaditem div{
+    display: none;
+}
+.uploaditem .del {
+    position: absolute;
+    right: 0;
+    top: -6px;
+    background: #6C6A6A;
+    border-radius: 17px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}

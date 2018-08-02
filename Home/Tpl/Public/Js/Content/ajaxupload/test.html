@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="__PUBLIC__/Js/jquery.js"></script>
+    <script src="__PUBLIC__/Js/ajaxfileupload.js"></script>
+
+
+    <script>
+        $(function(){
+           $('input[type=button]').click(function(){
+               $.ajaxFileUpload({
+                   url:"<{:U('test1')}>", //你处理上传文件的服务端
+                   secureuri:false,//是否启用安全机制
+                   fileElementId:'file1',//file的id
+                   dataType: 'application/json',//返回的类型
+                   success: function (data) {//调用成功时怎么处理
+                       alert(data);
+                   }
+               });
+           })
+        })
+    </script>
+
+
+</head>
+<body>
+    <input id='file1' type="file"  name="img[]" multiple="true">
+    <input type="button" value="上传">
+</body>
+</html>

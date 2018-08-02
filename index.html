@@ -1,0 +1,34 @@
+<script src="__TMPL__/Chat/chat.js"></script>
+<link rel="stylesheet" href="__TMPL__/Chat/chat.css">
+
+<script>
+    var login="<{$_SESSION['login']}>";
+    var getchatwindow="<{:U('Chat/getchatwindow')}>";
+    var addorsavechat="<{:U('Chat/addorsavechat')}>";
+    var getchat="<{:U('Chat/getchat')}>";
+    var getchatlist="<{:U('Chat/getchatlist')}>";
+    var chooseuserwindow="<{:U('Chat/chooseuserwindow')}>";
+    var getuser="<{:U('Chat/getuser')}>";
+</script>
+<div class="chat">
+    <div class="chat_heading">
+        <span>私信</span>
+        <div class="chat_close">X</div>
+        <button>新私信</button>
+    </div>
+    <div class="chat_item_box">
+        <foreach name="chats" item="row">
+            <figure vid="<{$row['user']['id']}>">
+                <if condition="!empty($row['user']['img'])">
+                    <img src="<{$row['user']['img']}>">
+                    <else/>
+                    <img src="../Public/Images/po.jpg">
+                </if>
+                <figcaption><{$row['user']['username']}></figcaption>
+                <div class="clear"></div>
+            </figure>
+        </foreach>
+    </div>
+</div>
+<div class="chat_modal"></div>
+<div class="chat_tip"></div>

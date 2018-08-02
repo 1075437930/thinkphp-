@@ -1,0 +1,29 @@
+<include file="Content:colheader"/>
+<script>
+    var getmodel="<{:U('getmodel')}>";
+</script>
+<script src="../Public/Js/cascade.js"></script>
+<h1>添加子栏目</h1>
+<form action="__URL__/insertcolumn" method="post"  target="">
+    <div class="form-group">
+        <label >栏目名称</label>
+        <input type="text" class="form-control" name="name" placeholder="栏目名">
+    </div>
+    <div class="form-group">
+        <label >父栏目</label>
+        <select name="father" class="form-control">
+            <option value="" disabled>选择</option>
+            <option value="<{$row['id']}>" class="ebled"><{$row['name']}></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label >模型</label>
+        <select name="model" class="form-control">
+            <option value="" disabled>选择</option>
+            <option value="<{$t[id]}>"><{$t[name]}></option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-default">确认</button>
+</form>
+</body>
+</html>

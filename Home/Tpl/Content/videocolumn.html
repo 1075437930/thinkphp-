@@ -1,0 +1,53 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/videocolumn.css">
+<div class="Separator"></div>
+<div class="container">
+    <article>
+        <!--三级导航start-->
+        <section>
+            <h1><{$column['name']}></h1>
+            <p>
+                <span>分类</span>
+                <if condition="$_GET['type'] eq 'all' || $_GET['type'] eq ''">
+                    <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['id']}>/type/all" style="color: #6ED56C">全部</a>
+                    <else/>
+                    <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['id']}>/type/all">全部</a>
+                </if>
+                <foreach name="bots" item="row">
+                    <if condition="$_GET['type'] eq $row['id']">
+                         <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$_GET['column']}>/type/<{$row['id']}>" style="color: #6ED56C"><{$row['name']}></a>
+                        <else/>
+                        <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$_GET['column']}>/type/<{$row['id']}>"><{$row['name']}></a>
+                    </if>
+                </foreach>
+            </p>
+        </section>
+        <!--三级导航end-->
+        <!--列表start-->
+        <section>
+            <foreach name="videos" item="row">
+                <div class="item">
+                    <div class="limit">
+                        <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>">
+                            <img src="<{$row['img']}>">
+                        </a>
+                    </div>
+
+                    <p><a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>"> <{$row['title']}></a></p>
+
+                    <p class="info">
+                        <a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$_GET['column']}>/type/<{$row['cate']['id']}>" class="cate"><{$row['cate']['name']}></a>
+                        <span>|</span>
+                        <a href="" class="fab"><i></i><span>(233)</span></a>
+                    </p>
+                </div>
+            </foreach>
+            <div class="clear"></div>
+            <div class="showpage">
+                <{$show}>
+            </div>
+        </section>
+        <!--列表end-->
+    </article>
+</div>
+<include file="Public:footer"/>

@@ -1,0 +1,22 @@
+<div class="item">
+    <img src="<{$_SESSION['img']}>">
+    <div class="item_con">
+        <p><a href=""><{$_SESSION['username']}></a><time><{:date('Y-m-d H:i',time())}></time></p>
+        <p><{$comm['content']}><{$comm['ait']}></p>
+        <p><a href="javascript:" class="replay">回复</a> <a href="javascript:" class="comm_fab" cid="<{$comm['id']}>"><i></i><span>(0)</span></a></p>
+        <form class="replay_form">
+            <div class="form-group">
+                <textarea name="content" placeholder="回复:"></textarea>
+            </div>
+            <div class="form-group_t three">
+                <span></span>
+                <input type="submit" value="回复" user="<{$u['username']}>" con="<{$comm['content']}>">
+                <div class="clear"></div>
+            </div>
+            <input type="hidden" value="<{$comm['id']}>" name="pid">
+            <input type="hidden" value="<{$_POST['tid']}>" name="tid">
+            <input type="hidden" value="<{$_POST['typeid']}>" name="typeid">
+        </form>
+    </div>
+    <div class="clear"></div>
+</div>

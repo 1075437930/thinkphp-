@@ -1,0 +1,104 @@
+/*右侧导航样式start*/
+.nav_ri {
+    position: fixed;
+    right: 20px;
+    top: 50px;
+    z-index: 3;
+}
+
+.nav_ri a:hover{
+    color: #6ED56C;
+}
+nav.nav_ri li{
+    margin-top: 10px;
+
+}
+nav.nav_ri li a {
+    color:white;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 42px;
+    background: rgba(21,21,21,0.5);
+    line-height: 42px;
+    border-radius: 23px;
+}
+h1 {
+    font-size: 34px;
+    color: #333333;
+}
+h1+p{
+    margin-top: 10px;
+}
+h1+p a{
+    color: #99A2AA;
+    margin-left: 10px;
+}
+/*右侧导航样式end*/
+/*单条视频的样式start*/
+.item {
+    width: 250px;
+    z-index: 1;
+    float: left;
+    margin-right: 37px;
+    margin-top: 36px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.limit{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+.item img{
+    width: 100%;
+    height: 150px;
+}
+.item img+p{
+    color: #333333;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.item a:hover p{
+    color:#6476A7 ;
+}
+.item a img{
+    transition: transform 0.5s  linear 0s;
+}
+.item a:hover img{
+    transform: scale(1.2);
+}
+
+.limit+p a{
+    color: #333333;
+    font-size: 13px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.cate {
+    color: #999999;
+    font-size: 13px;
+}
+.cate+span {
+    color: #999999;
+    font-size: 11px;
+}
+.info{
+    line-height: 21px;
+}
+.fab i {
+    background: url("../../Images/20170329151503.png") no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    vertical-align: middle;
+}
+.fab span {
+    font-size: 14px;
+    color: #999999;
+}
+/*单条视频的样式end*/

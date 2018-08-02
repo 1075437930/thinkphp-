@@ -1,0 +1,58 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/specialinfo.css">
+<div class="container">
+
+    <section class="special_heading">
+        <figure class="info">
+            <img src="<{$spec['img']}>">
+            <figcaption>
+                <h1><{$spec['name']}></h1>
+                <p class="special_descrip"><{$spec['describe']}></p>
+            </figcaption>
+        </figure>
+    </section>
+    <section class="special_box">
+        <article>
+            <section>
+                <if condition="!empty($artis)">
+                    <foreach name="artis" item="row2">
+                        <figure class="special_item">
+                            <h3><a href="__URL__/artcon/id/<{$row2['id']}>"><{$row2['title']}></a> </h3>
+                            <p>
+                                <time><{:date('Y-m-d H:i',$row2['inputtime'])}></time>
+                                <span>阅读数:<{$row2['views']}></span>
+                            </p>
+                            <figcaption>
+                                <a href="__URL__/artcon/id/<{$row2['id']}>">
+                                    <{$row2['img']}>
+                                    <div class="arti_con">
+                                        <{:mb_substr($row2['content'],0,200,'utf-8')}>
+                                    </div>
+                                </a>
+                                <div class="clear"></div>
+                            </figcaption>
+                        </figure>
+                    </foreach>
+                    <else/>
+                    <p class="special_empty">该专题下暂无文章</p>
+                </if>
+                <{$show}>
+            </section>
+        </article>
+        <aside>
+            <section class="alsolike">
+                <h3>更多专题</h3>
+                <foreach name="mores" item="row3">
+                    <figure>
+                        <img src="<{$row3['img']}>">
+                        <figcaption>
+                            <{$row3['name']}>
+                        </figcaption>
+                    </figure>
+                </foreach>
+            </section>
+        </aside>
+        <div class="clear"></div>
+    </section>
+</div>
+<include file="Public:footer"/>

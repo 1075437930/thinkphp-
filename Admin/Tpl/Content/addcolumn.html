@@ -1,0 +1,34 @@
+    <include file="Content:colheader"/>
+    <script>
+        var getmodel="<{:U('getmodel')}>";
+    </script>
+    <script src="../Public/Js/cascade.js"></script>
+    <form action="__URL__/insertcolumn" method="post"  target="">
+        <div class="form-group">
+            <label >栏目名称</label>
+            <input type="text" class="form-control" name="name" placeholder="栏目名">
+        </div>
+        <div class="form-group">
+            <label >选择父栏目</label>
+            <select name="father" class="form-control">
+                <option value="" disabled>选择</option>
+                <option value="0" class="ebled" selected>顶级栏目</option>
+                <option value="" disabled class="text-danger">- - - - - - - </option>
+                <foreach name="rows" item="row">
+                    <option value="<{$row['id']}>" class="ebled"><{$row['tree']}></option>
+                </foreach>
+            </select>
+        </div>
+        <div class="form-group">
+            <label >选择模型</label>
+            <select name="model" class="form-control">
+                <option value="" disabled>选择</option>
+                <foreach name="types" item="row2">
+                    <option value="<{$row2[id]}>"><{$row2[name]}></option>
+                </foreach>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">确认</button>
+    </form>
+</body>
+</html>

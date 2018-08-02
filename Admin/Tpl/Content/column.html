@@ -1,0 +1,49 @@
+<include file="Content:colheader"/>
+<script>
+    var dele="<{:U('deletecolumn')}>";
+</script>
+<script src="../Public/Js/manage.js"></script>
+<table class="table table-hover table-condensed table-striped table-bordered">
+    <tr>
+        <th></th>
+        <th>ID</th>
+        <th>栏目名称</th>
+        <th>栏目模型</th>
+        <th>修改</th>
+        <th>删除</th>
+    </tr>
+    <foreach name="rows" item="row">
+        <tr>
+            <td><input type="checkbox" uid="<{$row[id]}>"></td>
+            <td><{$row['id']}></td>
+            <td><{$row['tree']}><a href="__URL__/addson/id/<{$row['id']}>" class="pull-right" title="添加子栏目"><span class="glyphicon glyphicon-plus"></span></a></td>
+            <td>
+                <if condition="$row['pid']==0">
+                     <{$row['type']}>
+                    <else/>
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </if>
+            </td>
+            <td><a href="__URL__/editcolumn/id/<{$row['id']}>">修改</a> </td>
+            <td><a href="javascript:" class="del" uid="<{$row['id']}>">删除</a> </td>
+        </tr>
+    </foreach>
+    <tr>
+        <td colspan="1">
+            <a href="javascript:" class="all">全选</a>
+        </td>
+        <td colspan="1">
+            <a href="javascript:" class="delall">删除</a>
+        </td>
+        <td colspan="5"><{$show}></td>
+    </tr>
+</table>
+<script>
+    $('.del').click(function(){
+        if(window.confirm('确定删除吗?')){
+            location="<{:U('deletecolumn')}>"+"/id/"+$(this).attr('uid');
+        }
+    });
+</script>
+</body>
+</html>

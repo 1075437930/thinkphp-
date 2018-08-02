@@ -1,0 +1,33 @@
+<foreach name="arrs" item="row">
+    <if condition="$row['id'] eq $_SESSION['userid']">
+        <div class="chat_item_from">
+             <if condition="!empty($row['user']['img'])">
+                  <img src="<{$row['user']['img']}>" class="headport">
+                  <else/>
+                  <img src="../Public/Images/po.jpg" class="headport" />
+             </if>
+            <div class="chat_text">
+                 <div>
+                      <{:htmlspecialchars_decode($row['content'])}>
+                 </div>
+                 <time><{:date('Y-m-d H:i:s',$row['time'])}></time>
+             </div>
+            <div class="clear"></div>
+        </div>
+        <else/>
+        <div class="chat_item_to">
+            <if condition="!empty($row['user']['img'])">
+                <img src="<{$row['user']['img']}>" class="headport">
+                <else/>
+                <img src="../Public/Images/po.jpg" class="headport" />
+            </if>
+            <div class="chat_text">
+                <div>
+                    <{:htmlspecialchars_decode($row['content'])}>
+                </div>
+                <time><{:date('Y-m-d H:i:s',$row['time'])}></time>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </if>
+</foreach>

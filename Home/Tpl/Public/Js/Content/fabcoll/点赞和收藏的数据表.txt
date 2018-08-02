@@ -1,0 +1,19 @@
+-- 点赞表
+-- fabulous
+create table fabulous(
+  id int unsigned not null auto_increment,
+  userid int not null,	
+  tid int not null,
+  typeid int not null,
+  primary key(id)	
+);
+
+-- 收藏表
+-- coll
+create table coll(
+  id int unsigned not null auto_increment,
+  userid int not null,	
+  tid int not null,
+  typeid int not null,
+  primary key(id)			
+);

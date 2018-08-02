@@ -1,0 +1,20 @@
+<include file="Content:specialheader"/>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>专题名</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <foreach name="rows" item="row">
+                <tr>
+                    <td><{$row['id']}></td>
+                    <td><{$row['name']}></td>
+                    <td><a href="__URL__/editspecial/id/<{$row['id']}>">修改</a> </td>
+                    <td><a href="__URL__/delspecial/id/<{$row['id']}>">删除</a> </td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+</body>
+</html>

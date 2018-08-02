@@ -1,0 +1,85 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Content/videcon.css">
+<script type="text/javascript" src="../Public/Js/videcon.js"></script>
+<script src="../Public/Js/videoslide.js"></script>
+<script>
+    $(function () {
+        slide('.slide', ".imgbox", '.imgbox li', '.page', '.page li', 'k', 'tal', 'now', 'i', 'T', 'siz', 'wid', 'le', '3000', '.le', '.ri');
+    });
+</script>
+<link rel="stylesheet" href="../Public/Js/Content/fabcoll/fabcoll.css">
+<script>
+    var addfab="<{:U('addfab')}>";
+    var userid="<{$userid}>";
+    var typeid="<{$typeid}>";
+    var id="<{$tid}>";
+    var collhand="<{:U('collhand')}>";
+</script>
+<script src="../Public/Js/Content/fabcoll/fabcoll.js"></script>
+
+
+<div class="Separator"></div>
+<div class="container">
+    <article>
+        <section class="v_top">
+            <h1><{$video['title']}></h1>
+            <div>
+            <time><{:date('Y-m-d H:i',$video['inputtime'])}></time><span>|</span><a class="cate"><{$colu['name']}></a>
+                <!--点赞收藏start-->
+                <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$_GET['vid']}>/type/4"  scrolling="no" style="float: right">
+                </iframe>
+                <!--点赞收藏end-->
+                <div class="clear"></div>
+            </div>
+        </section>
+        <section style="position: relative;margin-top: 20px;">
+            <div class="cover_plate">广告位</div>
+            <div class="Separator"></div>
+            <iframe src="<{$video['url']}>" scrolling='no' allowScriptAccess='always' class="vdf"></iframe>
+            <!--视频简介start-->
+            <div class="intro">
+                <h2>视频简介:</h2>
+                <p>
+                <{:htmlspecialchars_decode($video['description'])}>
+                 </p>
+            </div>
+            <!--视频简介end-->
+            <!--相关视频start-->
+            <div class="about">
+                <p>相关视频</p>
+                <div class="about_box">
+                    <!--幻灯片start-->
+                    <div class="slide">
+                        <ul class="imgbox">
+                            <foreach name="about" item="row">
+                                <li>
+                                    <a href="__URL__/videcon/id/<{$_GET['id']}>/vid/<{$row['id']}>">
+                                        <img src="<{$row['img']}>">
+                                        <p><{:mb_substr($row['title'],0,20,'utf-8')}></p>
+                                    </a>
+                                </li>
+                            </foreach>
+                            <div class="clear"></div>
+                        </ul>
+                        <ul class="page">
+
+                        </ul>
+                        <div class="btn le">
+                            <
+                        </div>
+                        <div class="btn ri">
+                            >
+                        </div>
+/
+                    </div>
+                    <!--幻灯片end-->
+                </div>
+            </div>
+            <!--相关视频end-->
+        </section>
+        <!--评论start-->
+        <iframe class='iframeId' src="__APP__/Comment/index/id/<{$_GET['vid']}>/type/4" width="100%" scrolling="no"></iframe>
+
+    </article>
+</div>
+<include file="Public:footer"/>

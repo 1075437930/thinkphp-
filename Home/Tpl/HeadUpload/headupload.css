@@ -1,0 +1,158 @@
+
+.clear{
+    clear: both;
+}
+ul li{
+    list-style: none;
+}
+.headupmodal {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 19;
+    display: none;
+}
+
+.blue figure {
+    border: 3px solid white;
+    background-color: #1DA1F2;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 67px;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.prompt{
+    background: url('2017-04-14_131208.png') no-repeat;
+    display: inline-block;
+    width: 71px;
+    line-height: 2;
+    color: white;
+    font-size: 14px;
+    height: 36px;
+}
+.blue figure .prompt {
+    top: -28px;
+    left: -4px;
+    position: absolute;
+    display: none;
+}
+.blue figure:hover .prompt{
+    display: block;
+}
+
+.blue ul {
+    position: absolute;
+    border: 1px solid #E6ECF0;
+    display: none;
+    top: 57px;
+    left: -71px;
+    background-color: white;
+}
+.blue ul li {
+    width: 200px;
+    height: 40px;
+    margin-top: 3px;
+    background-color: white;
+    border-bottom: 1px solid #E6ECF0;
+    line-height: 40px;
+    color: #8799A5;
+}
+.blue ul input{
+    display: none;
+}
+.blue ul i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("2017-04-15_095801.png") no-repeat;
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    margin-left: -10px;
+}
+.blue ul li:hover{
+    background-color: #0084B4;
+    color: white;
+}
+.blue .head img{
+    width: 100%;
+    height: 100%;
+}
+.cutpop{
+    position: fixed;
+    width: 520px;
+    background-color: white;
+    top: 30px;
+    left: 50%;
+    margin-left: -260px;
+    border-radius: 5px;
+    display: none;
+    z-index: 30;
+}
+.cutpop p {
+    border-bottom: 1px solid #E6ECF0;
+    color: #66757F;
+    text-align: center;
+    height: 39px;
+    line-height: 39px;
+}
+.cutpop .cutclose {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+.cutpop .cut_bot{
+    border-top: 1px solid #E6ECF0;
+    clear: both;
+}
+.cutpop .original{
+    float: left;
+    margin-left: 10px;
+}
+.cutoperation{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cutpop .cutbtn {
+    float: right;
+    width: 86px;
+    height: 31px;
+    border-radius: 7px;
+    margin-right: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.cutpop .cutdel{
+    background-color: white;
+    border: 1px solid #E6ECF0;
+}
+.cutpop .cutok{
+    background-color:#1C9BEA;
+    border: 1px solid #3FAFF4;
+    color: white;
+}
+.cutpop .preview {
+    float: left;
+    margin-left: 18px;
+}
+.cutpop .preview p{
+    border-bottom: 0!important;
+}
+.jcrop-holder {
+    float: left;
+    margin-left: 14px;
+}
+.preview_contain{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ededed;
+    overflow: hidden;
+}

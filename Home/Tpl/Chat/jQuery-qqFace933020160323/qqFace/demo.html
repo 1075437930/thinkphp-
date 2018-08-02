@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <style>
+        .qqFace table td {
+            padding: 0px;
+        }
+
+        .qqFace table td img {
+            cursor: pointer;
+            border: 1px #fff solid;
+        }
+
+        .qqFace table td img:hover {
+            border: 1px #0066cc solid;
+        }
+
+        #saytext {
+            border: 1px solid blue;
+            background-color: #ffffff;
+            height: 200px;
+        }
+        textarea{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<form action="insert.php" method="post">
+<!--这里用了div代替文本域解析html标签-->
+<div id="saytext" contenteditable="true"></div>
+<textarea name="content"></textarea>
+
+<button class="choose" type="button">选择表情</button>
+<input type="submit" value="提交">
+</form>
+</body>
+
+<script src="js/jquery-1.10.2.min_65682a2.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/jquery.qqFace.js"></script>
+
+<script>
+    $(function () {
+        $('.choose').qqFace({
+            id: 'facebox',
+
+            assign: 'saytext',
+
+            path: 'arclist/'	//表情存放的路径
+        });
+
+//    点击表情图片然后将其复制添加到编辑区
+        $(document).on('click', '#facebox img', function () {
+            $('#saytext').append($(this).clone());
+        });
+
+//        表单提交时将div编辑区的内容赋值给textarea
+        $('form').submit(function(){
+            $('textarea').val($('#saytext').html());
+        });
+
+    });
+</script>
+
+</html>

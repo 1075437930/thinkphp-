@@ -1,0 +1,52 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="../Public/Css/Login/register.css">
+<script>
+    var hand="<{:U('registerHandle')}>";
+    var succ="<{:U('success')}>";
+    var isset="<{:U('isexistence')}>";
+</script>
+<script src="../Public/Js/Login/register.js"></script>
+<div class="Separator"></div>
+<div class="container">
+  <article>
+      <h1>注册</h1>
+      <section>
+          <!--注册表单start-->
+          <div class="backerror backerror_b"></div>
+          <form class="register_form">
+              <div class="form-group">
+                  <label>用户名：</label>
+                  <input type="text" name="user" placeholder="用户名">
+              </div>
+              <div class="error"></div>
+              <div class="form-group">
+                  <label>密码：</label>
+                  <input type="password" name="password" placeholder="密码" id="password">
+              </div>
+              <div class="error"></div>
+              <div class="form-group">
+                  <label>确认密码：</label>
+                  <input type="password" name="repassword" placeholder="密码">
+              </div>
+              <div class="error"></div>
+              <div class="form-group">
+                  <label>邮箱：</label>
+                  <input type="text" name="email" placeholder="邮箱">
+              </div>
+              <div class="error"></div>
+              <div class="form-group">
+                  <label>验证码：</label>
+                  <input type="text" name="verify" >
+                  <img src="__URL__/verify" onclick="this.src='__URL__/verify/'+Math.random()">
+              </div>
+              <div class="error"></div>
+              <div class="sub">
+                  <input type="submit" value="提交">
+              </div>
+          </form>
+          <!--注册表单end-->
+      </section>
+  </article>
+</div>
+<include file="Public:footer"/>
+

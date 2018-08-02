@@ -1,0 +1,33 @@
+<figure class="sat_item">
+    <img src="<{$_SESSION['img']}>">
+    <figcaption>
+        <p class="say_heading"><a><{$_SESSION['username']}></a><time><{:date('Y-m-d H:i:s',time())}></time></p>
+        <p><{:htmlspecialchars_decode($_POST['content'])}></p>
+        <div class="source">
+            <{:htmlspecialchars_decode($_POST['source'])}>
+        </div>
+        <if condition="!empty($row['forward'])">
+            <div class="forward" vid="<{$row['forward']['id']}>">
+                <img src="<{$row['forward']['user']['img']}>">
+                <figcaption>
+                    <p class="say_heading"><a><{$row['forward']['user']['username']}></a><time><{:date('Y-m-d H:i:s',$row['forward']['inputtime'])}></time></p>
+                    <p><{$row['forward']['content']}></p>
+                    <div class="source">
+                        <{:htmlspecialchars_decode($row['forward']['source'])}>
+                    </div>
+                </figcaption>
+                <div class="clear"></div>
+            </div>
+        </if>
+        <div class="opt">
+            <i class="replay_tb" vid="<{$row['id']}>"></i>
+            <i class="share_tb"></i>
+            <!--加载点赞分享模块start-->
+            <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['id']}>/type/3"  scrolling="no">
+            </iframe>
+            <!--加载点赞分享模块end-->
+            <div class="clear"></div>
+        </div>
+    </figcaption>
+    <div class="clear"></div>
+</figure>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查看栏目下的内容</title>
+    <link rel="stylesheet" href="../Public/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Public/Css/showcons.css">
+    <script src="__PUBLIC__/Js/jquery-1.10.2.min_65682a2.js"></script>
+    <script src="../Public/bs/js/bootstrap.min.js"></script>
+    <script>
+        URL = "<{:U('deletecons')}>";
+        var dele = URL + "/type/<{$_GET['type']}>";
+    </script>
+    <script src="../Public/Js/manage.js"></script>
+</head>
+<body>
+<if condition="$_GET['type'] neq 3">
+<p class="menu"><a href="__URL__/addcons/id/<{$_GET['classid']}>/type/<{$_GET['type']}>" class="btn btn-primary"
+                   target="right">添加内容</a></p>
+</if>
+<p class="wh" classid="<{$_GET['classid']}>"></p>
+<if condition="!empty($rows)">
+    <!--文章模型内容start-->
+    <if condition="$_GET['type'] eq 1">
+        <p>内容类型:文章</p>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>标题</th>
+                <th>来源</th>
+                <th>关键词</th>
+                <th>本周访问量</th>
+                <th>添加时间</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <foreach name="rows" item="row">
+                <tr>
+                    <td><input type="checkbox" uid="<{$row[id]}>"></td>
+                    <td><{$row[id]}></td>
+                    <td><{:mb_substr($row[title],0,15,'utf8')}></td>
+                    <td><{:htmlspecialchars_decode($row[source])}></td>
+                    <td><{:mb_substr($row[keywords],0,12,'utf8')}></td>
+                    <td><{$row[weekviews]}></td>
+                    <td><{:date('Y-m-d H:i:s',$row[inputtime])}></td>
+                    <td><a href="__URL__/editcons/id/<{$row['id']}>/type/<{$_GET['type']}>" target="right">修改</a></td>
+                    <td><a href="javascript:" class="del" uid="<{$row[id]}>">删除</a></td>
+                </tr>
+            </foreach>
+            <tr>
+                <td colspan="1">
+                    <a href="javascript:" class="all">全选</a>
+                </td>
+                <td colspan="1">
+                    <a href="javascript:" class="delall">删除</a>
+                </td>
+
+                <td colspan="1">
+                    <switch name="order">
+                        <case value="1"><a href="?seq=0">按最新添加排序</a></case>
+                        <case value="0"><a href="?seq=1">按最早添加排序</a></case>
+                    </switch>
+                </td>
+                <td colspan="6"><{$show}></td>
+            </tr>
+        </table>
+        <!--文章模型内容end-->
+
+        <!--音乐模型内容start-->
+        <elseif condition="$_GET['type'] eq 2"/>
+        <p class="type" type="<{$_GET['type']}>">内容类型:音乐</p>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>歌曲名</th>
+                <th>简介</th>
+                <th>来源</th>
+                <th>添加时间</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <foreach name="rows" item="row">
+                <tr>
+                    <td><input type="checkbox" uid="<{$row[id]}>"></td>
+                    <td><{$row[id]}></td>
+                    <td><{:mb_substr($row[title],0,15,'utf8')}></td>
+                    <td><{:mb_substr($row[description],0,15,'utf8')}></td>
+                    <td><{$row[source]}></td>
+                    <td><{:date('Y-m-d H:i:s',$row[inputtime])}></td>
+                    <td><a href="__URL__/editcons/id/<{$row['id']}>/type/<{$_GET['type']}>" target="right">修改</a></td>
+                    <td><a href="javascript:" class="del" uid="<{$row[id]}>">删除</a></td>
+                </tr>
+            </foreach>
+            <tr>
+                <td colspan="1">
+                    <a href="javascript:" class="all">全选</a>
+                </td>
+                <td colspan="1">
+                    <a href="javascript:" class="delall">删除</a>
+                </td>
+
+                <td colspan="1">
+                    <switch name="order">
+                        <case value="1"><a href="?seq=0">按最新添加排序</a></case>
+                        <case value="0"><a href="?seq=1">按最早添加排序</a></case>
+                    </switch>
+                </td>
+                <td colspan="6"><{$show}></td>
+            </tr>
+        </table>
+        <!--音乐模型内容end-->
+        <!--说说模型内容start-->
+        <elseif condition="$_GET['type'] eq 3"/>
+        <p>内容类型:说说</p>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>标题</th>
+                <th>发表用户</th>
+                <th>发表时间</th>
+                <th>获赞数</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <foreach name="rows" item="row">
+                <tr>
+                    <td><input type="checkbox" uid="<{$row[id]}>"></td>
+                    <td><{$row[id]}></td>
+                    <td><{:mb_substr($row[title],0,15,'utf8')}></td>
+                    <td><{$row[user]}></td>
+                    <td><{:date('Y-m-d H:i:s',$row[inputtime])}></td>
+                    <td><{$row[num]}></td>
+                    <td><a href="__URL__/editcons/id/<{$row['id']}>/type/<{$_GET['type']}>" target="right">修改</a></td>
+                    <td><a href="javascript:" class="del" uid="<{$row[id]}>">删除</a></td>
+                </tr>
+            </foreach>
+            <tr>
+                <td colspan="1">
+                    <a href="javascript:" class="all">全选</a>
+                </td>
+                <td colspan="1">
+                    <a href="javascript:" class="delall">删除</a>
+                </td>
+
+                <td colspan="1">
+                    <switch name="order">
+                        <case value="1"><a href="?seq=0">按最新添加排序</a></case>
+                        <case value="0"><a href="?seq=1">按最早添加排序</a></case>
+                    </switch>
+                </td>
+                <td colspan="6"><{$show}></td>
+            </tr>
+        </table>
+        <!--说说模型内容end-->
+        <!--视频模型内容start-->
+        <elseif condition="$_GET['type'] eq 4"/>
+        <p class="type" type="<{$_GET['type']}>">内容类型:视频</p>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>视频标题</th>
+                <th>简介</th>
+                <th>添加时间</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <foreach name="rows" item="row">
+                <tr>
+                    <td><input type="checkbox" uid="<{$row[id]}>"></td>
+                    <td><{$row[id]}></td>
+                    <td><{:mb_substr($row[title],0,15,'utf8')}></td>
+                    <td><{:mb_substr($row[description],0,15,'utf8')}></td>
+                    <td><{:date('Y-m-d H:i:s',$row[inputtime])}></td>
+                    <td><a href="__URL__/editcons/id/<{$row['id']}>/type/<{$_GET['type']}>" target="right">修改</a></td>
+                    <td><a href="javascript:" class="del" uid="<{$row[id]}>">删除</a></td>
+                </tr>
+            </foreach>
+            <tr>
+                <td colspan="1">
+                    <a href="javascript:" class="all">全选</a>
+                </td>
+                <td colspan="1">
+                    <a href="javascript:" class="delall">删除</a>
+                </td>
+
+                <td colspan="1">
+                    <switch name="order">
+                        <case value="1"><a href="?seq=0">按最新添加排序</a></case>
+                        <case value="0"><a href="?seq=1">按最早添加排序</a></case>
+                    </switch>
+                </td>
+                <td colspan="6"><{$show}></td>
+            </tr>
+        </table>
+        <!--视频模型内容end-->
+    </if>
+    <else/>
+    <p class="empty">
+        此栏目下没有内容
+    </p>
+</if>
+<script>
+    $('.del').click(function () {
+        if (window.confirm('确定删除吗?')) {
+            location = "<{:U('deletecons')}>" + "/id/" + $(this).attr('uid') + "/type/" + "<{$_GET['type']}>";
+        }
+    });
+</script>
+</body>
+</html>

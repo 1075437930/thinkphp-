@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--复制粘贴start-->
+    <script src="__TMPL__/HeadUpload/jquery-1.10.2.min_65682a2.js"></script>
+    <script src="__TMPL__/HeadUpload/ajaxfileupload.js"></script>
+    <!--加载jcrop图片裁剪插件start-->
+    <link rel="stylesheet"
+          href="__TMPL__/HeadUpload/jcrop/css/jquery.Jcrop.css">
+    <script src="__TMPL__/HeadUpload/jcrop/js/jquery.Jcrop.js"></script>
+    <!--加载jcrop图片裁剪插件end-->
+    <script>
+        //更改成当前本地站点名,如果是上线网站就赋值为空
+        var site='/jin';
+
+        var ajaxupload = "<{:U('HeadUpload/ajaxupload')}>";
+        var cutimg = "<{:U('HeadUpload/cutimg')}>";
+        var imgdel = "<{:U('HeadUpload/imgdel')}>";
+        var revokeimg="<{:U('HeadUpload/revokeimg')}>";
+    </script>
+    <link href="__TMPL__/HeadUpload/headupload.css" rel="stylesheet">
+    <script src="__TMPL__/HeadUpload/headupload.js"></script>
+    <!--复制粘贴end-->
+
+</head>
+<body>
+
+<!--复制粘贴start-->
+<eq name="_SESSION['login']"  value="1">
+    <div class="blue">
+    <if condition="empty($_SESSION['img'])">
+        <figure class="upload">
+            <img src="../Public/Images/2017-04-11_082227.png">
+
+            <div class="prompt">上传头像</div>
+            <ul>
+                <i></i>
+                <li>上传照片</li>
+                <input type="file" name="img" id="file1">
+                <li class="del">取消</li>
+            </ul>
+        </figure>
+        <else/>
+        <figure class="head">
+                <img src="<{$_SESSION['img']}>">
+                <ul>
+                    <i></i>
+                    <li class="revoke">撤销头像</li>
+                    <li class="del">取消</li>
+                </ul>
+        </figure>
+    </if>
+    <div class="cutpop">
+        <p>裁剪头像 <span class="cutclose">X</span></p>
+
+        <div class="cutoperation">
+            <img id="element_id" src="" class="original">
+
+            <div class="preview">
+                <p>裁剪预览</p>
+
+                <div class="preview_contain">
+                    <img src="" class="jcrop-preview">
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="cut_bot">
+            <form>
+                <input type="hidden" name="file">
+                <input type="hidden" id="x" name="x"/>
+                <input type="hidden" id="y" name="y"/>
+                <input type="hidden" id="w" name="w"/>
+                <input type="hidden" id="h" name="h"/>
+                <button type="button" class="cutbtn cutdel">取消</button>
+                <button type="button" class="cutbtn cutok">应用</button>
+            </form>
+            <div class="clear"></div>
+        </div>
+    </div>
+    </div>
+    <else/>
+    <p>请先登录</p>
+</eq>
+    <div class="headupmodal"></div>
+<!--复制粘贴end-->
+
+
+</body>
+</html>

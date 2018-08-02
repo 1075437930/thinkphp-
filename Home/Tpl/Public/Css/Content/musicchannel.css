@@ -1,0 +1,109 @@
+.music_nav a {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background-color: #6ED56C;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 18px;
+}
+
+.channel_img {
+    width: 22%;
+    height: 257px;
+    position: relative;
+    float: left;
+
+}
+.channel_img img{
+    width:100%;
+    height: 100%;
+    z-index: 10;
+    position: relative;
+}
+.channel_img figcaption{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background: rgba(76,76,67,0.3);
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    z-index: 14;
+}
+.disk {
+    background: url("../../Images/d3e160c583e007ae39d0e0f0bce4d21e.png") no-repeat;
+    display: inline-block;
+    width: 193px;
+    height: 257px;
+    position: absolute;
+    top: 0;
+    Z-index: 1;
+}
+.disk+i{
+    background: url("../../Images/2f06c7975843f001652e688d9ae02f06.png") no-repeat;
+    display: inline-block;
+    width: 118px;
+    height: 53px;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    z-index: 11;
+}
+.channel_item_ri{
+    width: 77%;
+
+    float: right;
+}
+p.channel_item_ri_heading {
+    color: #666666;
+    font-size: 23px;
+}
+.music_item{
+    background-color: #F4F4F4;
+    float: left;
+    width: 200px;
+    border: 1px solid #ededed;
+    height: 67px;
+    margin-top: 5px;
+    margin-right: 27px;
+}
+.music_item img,.music_item figcaption{
+    float: left;
+}
+.music_item img{
+    width: 50px;
+    height: 100%;
+}
+.music_item figcaption {
+    width: 145px;
+    font-size: 11px;
+    margin-top: 14px;
+    margin-left: 5px;
+}
+.Separator_b{
+    height: 50px;
+}
+.current {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #6ED56C;
+    color: white;
+}
+.showpage a {
+    background-color: #AFADAD;
+    color: white;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 13px;
+    margin-left: 7px;
+}

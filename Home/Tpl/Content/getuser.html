@@ -1,0 +1,11 @@
+<foreach name="rows" item="row">
+    <div class="user_item">
+        <if condition="!empty($row['img'])">
+            <img src="<{$row['img']}>">
+            <else/>
+            <img src="../Public/Images/po.jpg">
+        </if>
+        <span><{$row['username']}></span>
+        <div class="clear"></div>
+    </div>
+</foreach>

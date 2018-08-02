@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>欧威</title>
+    <link rel="stylesheet" href="../Public/Css/header.css">
+    <!-- <link rel="stylesheet" href="../Public/Css/index.css"> -->
+    <script src="__PUBLIC__/Js/jquery.js"></script>
+    <script src="../Public/Js/html5shiv.js"></script>
+    <script src="../Public/Js/Login/dist/jquery.validate.js"></script>
+    <script src="../Public/Js/Login/dist/localization/messages_zh.js"></script>
+    <script>
+        var check="<{:U('Login/logincheck')}>";
+    </script>
+    <script src="../Public/Js/header.js"></script>
+
+</head>
+<body>
+    <header>
+        <!--头部导航栏start-->
+        <div class="top">
+            <ul class="top_left">
+                <li><a href="<{:U('Index/index')}>">首页</a> </li>
+                <foreach name="columns" item="row">
+                    <li>
+                        <if condition="$row['typeid'] eq 1">
+                            <a href="__APP__/Content/article/id/<{$row['id']}>"><{$row['name']}></a>
+                            <elseif condition="$row['typeid'] eq 2"/>
+                            <a href="__APP__/Content/music/id/<{$row['id']}>"><{$row['name']}></a>
+                            <elseif condition="$row['typeid'] eq 3"/>
+                            <a href="__APP__/Content/say/id/<{$row['id']}>"><{$row['name']}></a>
+                            <elseif condition="$row['typeid'] eq 4"/>
+                            <a href="__APP__/Content/video/id/<{$row['id']}>"><{$row['name']}></a>
+                        </if>
+                    </li>
+                </foreach>
+            </ul>
+            <ul class="top_right">
+                <li>
+                    <if condition="isset($_SESSION['username'])">
+                        <span class="wel">欢迎您</span><span><{$_SESSION['username']}></span>
+                        <a href="">个人中心</a>
+                        <a href="__APP__/Login/loginout">退出</a>
+                        <else/>
+                        <a href="javascript:" class="log_btn">登录</a>
+                    </if>
+                </li>
+                <if condition="!isset($_SESSION['username'])">
+                    <li><a href="__APP__/Login/register">注册</a> </li>
+                </if>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!--头部导航栏end-->
+        <!--登录框start-->
+        <div class="login">
+            <img src="../Public/Images/t1.png" class="sign">
+            <div class="login_separator">
+            </div>
+            <p class="backerror"></p>
+            <form action="__APP__/Login/logincheck" method="post">
+                <div class="form-group">
+                    <input type="text" placeholder="用户名" name="user">
+                </div>
+                <p class="error">
+
+                </p>
+                <div class="form-group">
+                    <input type="password" placeholder="密码" name="password">
+                </div>
+                <p class="error">
+
+                </p>
+                <div class="form-group">
+                    <input type="submit" value="登录">
+                </div>
+            </form>
+        </div>
+        <div class="modal"></div>
+        <!--登录框end-->
+        <if condition="$action neq 'video' AND $action neq 'videocolumn' AND $action neq 'register' AND $action neq 'say'">
+        <!--搜索栏start-->
+
+        <div class="search">
+            <div class="site_name">
+                欧威
+            </div>
+            <form action="__APP__/Search/index" method="get">
+                <div class="form-group">
+                    <if condition="isset($_GET['key'])">
+                        <input type="text" name="key" value="<{$_GET['key']}>">
+                        <else/>
+                        <input type="text" name="key">
+                    </if>
+                    <input type="hidden" name="type" value="all">
+                    <input type="submit" value="">
+                    <div class="clear"></div>
+                </div>
+            </form>
+            <div class="clear"></div>
+        </div>
+        </if>
+        <!--搜索栏end-->
+    </header>
+    <!--视频右侧导航start-->
+    <if condition="$action eq 'video' || $action eq 'videcon' || $action eq 'videocolumn'">
+        <nav class="nav_ri">
+            <ul>
+                <li><a href="__URL__/video/id/<{$_GET['id']}>">热门视频</a> </li>
+                <foreach name="sons" item="row">
+                    <li><a href="__URL__/videocolumn/id/<{$_GET['id']}>/column/<{$row['id']}>"><{$row['name']}></a> </li>
+                </foreach>
+            </ul>
+
+        </nav>
+    </if>
+    <!--视频右侧导航end-->

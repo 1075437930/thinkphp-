@@ -1,0 +1,265 @@
+.container{
+    width: 100%;
+   
+}
+
+/*幻灯片样式start*/
+.slidesec{
+
+    background-color: rgba(0,0,0,0.9);
+    
+}
+.main{
+    width: 70%;
+    margin: 0 auto;
+    height: 450px;
+    position: relative;
+}
+
+.imgbox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.imgbox li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.imgbox li p {
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    left: 0;
+    bottom: 0;
+    line-height: 45px;
+    font-size: 18px;
+    text-indent: 150px;
+}
+.imgbox li img{
+    width: 100%;
+    height:100%;
+    border: 0!important;
+}
+
+.num{
+    position: absolute;
+    left: 5px;
+    bottom: 13px;
+    
+}
+
+.num li{
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: white;
+    margin-left:10px;
+
+}
+
+.btn{
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.6);
+    margin-top:-25px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    font-size: 2em;
+    display: none;
+    cursor: pointer;
+}
+
+
+.main:hover .btn{
+    display: block;
+}
+
+.btn-le{
+    left: 20px;
+}
+
+.btn-ri{
+    right: 20px;
+}
+/*幻灯片样式end*/
+
+section{
+    margin-top: 20px;
+
+}
+
+section.con{
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+}
+
+section.con article{
+    float: left;
+    width: 63%;
+}
+
+section.con aside{
+    float: right;
+    width: 33%;
+}
+
+/*热门文章样式start*/
+.hot_art figure {
+    float: left;
+    width: 285px;
+    height: 138px;
+    margin-right: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.hot_art figure figcaption {
+    position: absolute;
+    color: white;
+    bottom: 20px;
+    text-align: center;
+    font-weight: bolder;
+    width: 80%;
+    left: 50%;
+    font-size: 15px;
+    margin-left: -114px;
+}
+
+.hot_art figure img{
+    width: 100%;
+    height: 100%;
+    border: 0!important;
+}
+
+.sec_heading {
+    color: #3D3D3D;
+    font-weight: bolder;
+}
+/*热门文章样式end*/
+
+/*热门视频样式start*/
+.hot_video figure {
+    float: left;
+    width: 285px;
+    margin-right: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+
+
+.hot_video figure img {
+    width: 100%;
+    height: 150px;
+}
+
+.hot_video figure figcaption a{
+    color:#474747 ;
+}
+
+.hot_video figure figcaption a:hover{
+    color: #45CE98;
+}
+
+.play {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(17,13,15,0.8) url("../Images/play-w.png") center center  no-repeat;
+    background-size: 80%;
+    left: 50%;
+    top: 42%;
+    border-radius: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+/*热门视频样式end*/
+
+/*热门音乐样式start*/
+.hot_music {
+    margin-top: 15px;
+}
+.hot_music figure{
+    float: left;
+    width: 50%;
+    
+    margin-top: 15px;
+}
+.hot_music figure img{
+    float: left;
+    width: 30%;
+    height: 80px;
+}
+
+.hot_music figure figcaption{
+    float: left;
+    width: 60%;
+    height: 80px;
+    margin-left: 10px;
+}
+.hot_music figure figcaption a{
+    color: #000000;
+}
+.hot_music figure figcaption a:hover{
+    color: #45CE52;
+}
+.hot_music figure figcaption p {
+    font-size: 13px;
+    color: #000000;
+    margin-top: 16px;
+}
+/*热门音乐样式end*/
+
+
+/*热门动态start*/
+.hot_dynamic figure {
+    margin-top: 20px;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 5px;
+}
+.hot_dynamic figure figcaption{
+    float: left;
+    width: 75%;
+    height: 60px;
+
+}
+
+.hot_dynamic figure figcaption p{
+    font-weight: bold;
+
+}
+
+.hot_dynamic figure img{
+    float: left;
+    width: 25%;
+    height: 60px;
+    
+}
+
+.dynamic_con img{
+    width: 30px!important;
+    height:30px!important;
+}
+/*热门动态end*/
+
+/*广告位样式start*/
+.advertisement{
+    height:200px;
+    background:#717679;
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    line-height: 200px;
+    font-size: 18px;
+}
+/*广告位样式end*/

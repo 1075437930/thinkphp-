@@ -1,0 +1,20 @@
+<foreach name="remens" item="row">
+    <if condition="$key eq 0">
+        <figure class="hot_fr">
+            <a href="__URL__/artcon/id/<{$row['id']}>">
+                <{$row['img']}>
+                <figcaption><{$row['title']}></figcaption>
+            </a>
+        </figure>
+        <else/>
+        <figure class="hot_item">
+            <a href="__URL__/artcon/id/<{$row['id']}>">  <{$row['img']}></a>
+            <figcaption>
+                <p><a href="__URL__/artcon/id/<{$row['id']}>"><{$row['title']}></a></p>
+                <span class="category"><{$row['cate']}></span><i></i>
+                <span class="source"><{:htmlspecialchars_decode($row['source'])}></span>
+            </figcaption>
+            <div class="clear"></div>
+        </figure>
+    </if>
+</foreach>

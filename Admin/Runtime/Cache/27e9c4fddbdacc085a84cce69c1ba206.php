@@ -1,0 +1,46 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="../Public/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Public/Css/login.css">
+
+    <script src="__PUBLIC__/Js/jquery-1.10.2.min_65682a2.js"></script>
+    <script src="../Public/bs/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $('.veri').prop('src',"<?php echo U('verify');?>"+'/'+Math.random());
+        })
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title ">后台登录</h1>
+            </div>
+            <div class="panel-body">
+                <form action="__URL__/check" method="post">
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input type="text" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>验证码</label>
+                        <input type="text" name="verify" class="form-control">
+                        <img src="__URL__/verify" onclick="this.src='__URL__/verify/'+Math.random()" width="100px" height="30px" class="veri">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

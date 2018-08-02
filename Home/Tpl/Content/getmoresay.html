@@ -1,0 +1,23 @@
+<foreach name="says" item="row">
+    <figure class="sat_item">
+        <img src="<{$row['user']['img']}>">
+        <figcaption>
+            <p class="say_heading"><a><{$row['user']['username']}></a><time><{:date('Y-m-d H:i:s',$row['inputtime'])}></time></p>
+            <p><{$row['content']}></p>
+            <div class="source">
+                <{:htmlspecialchars_decode($row['source'])}>
+            </div>
+            <div class="forward"><{:htmlspecialchars_decode($row['forward'])}></div>
+            <div class="opt">
+                <i class="replay_tb" vid="<{$row['id']}>"></i>
+                <i class="share_tb"></i>
+                <!--加载点赞分享模块start-->
+                <iframe class='fabcoll' src="__APP__/Fabcoll/index/id/<{$row['id']}>/type/3"  scrolling="no">
+                </iframe>
+                <!--加载点赞分享模块end-->
+                <div class="clear"></div>
+            </div>
+        </figcaption>
+        <div class="clear"></div>
+    </figure>
+</foreach>

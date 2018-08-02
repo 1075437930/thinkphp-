@@ -1,0 +1,206 @@
+<include file="Public:header"/>
+
+<link rel="stylesheet" href="../Public/Css/Content/article.css">
+<script src="../Public/Js/fadeslide.js"></script>
+<script src="../Public/Js/fadeslide1.js"></script>
+<script>
+    $(function () {
+        slide('.slide', ".imgbox", '.imgbox li', '.page', '.page li', 'k', 'tal', 'now', 'i', 'T', 'siz', 'wid', 'le', '3000', '.le', '.ri');
+
+        fadeslide1('.special_box','.special_box ul','.special_page','.special_page li','k1','special_initial','special_now','i2','T2','siz2','3000');
+    });
+</script>
+<script>
+    var sign = "<{$_GET['category']}>";
+    var URL = "<{:U('morenews')}>";
+</script>
+<script src="../Public/Js/Content/article.js"></script>
+<div class="Separator"></div>
+<div class="container">
+    <!--文章首页侧边导航栏start-->
+    <aside class="wrap_aside">
+        <nav>
+            <ul>
+                <li><a href="__URL__/article/id/<{$_GET['id']}>/category/recommend" sign="recommend">推荐</a></li>
+                <li><a href="__URL__/article/id/<{$_GET['id']}>/category/hot" sign="hot">热点</a></li>
+                <foreach name="sons" item="row2">
+                    <li><a href="__URL__/article/id/<{$_GET['id']}>/category/<{$row2['id']}>" sign="<{$row2['id']}>"><{$row2['name']}></a></li>
+                </foreach>
+            </ul>
+        </nav>
+    </aside>
+    <!--文章首页侧边导航栏end-->
+    <article class="wrap_article">
+        <!--中间主体部分start-->
+        <article class="main">
+            <section>
+                <!--幻灯片start-->
+                <div class="slide">
+                    <ul class="imgbox">
+                        <foreach name="slides" item="row">
+                            <li>
+                                <a href="__URL__/artcon/id/<{$row['id']}>">
+                                    <{$row['img']}>
+                                    <p><{:mb_substr($row['title'],0,20,'utf-8')}></p>
+                                </a>
+                            </li>
+                        </foreach>
+                    </ul>
+                    <ul class="page">
+
+                    </ul>
+                    <div class="btn le">
+                        <
+                    </div>
+                    <div class="btn ri">
+                        >
+                    </div>
+                </div>
+                <!--幻灯片end-->
+                <!--专题start-->
+                <div class="special">
+                    <p>
+                        <span>热门专题</span>
+                        <a href="__URL__/specialist">更多</a>
+                    </p>
+                    <div class="special_box">
+                    <ul>
+                        <foreach name="spes" item="row">
+                            <if condition="$key elt 2">
+                                <li>
+                                    <a href="__URL__/specialinfo/id/<{$row['id']}>"><img src="<{$row['img']}>"></a>
+                                    <p><{$row['name']}></p>
+                                </li>
+                            </if>
+                        </foreach>
+                    </ul>
+                    <ul>
+                        <foreach name="spes" item="row">
+                            <if condition="$key gt 2 AND $key elt 5">
+                                <li>
+                                    <a href="__URL__/specialinfo/id/<{$row['id']}>"><img src="<{$row['img']}>"></a>
+                                    <p><{$row['name']}></p>
+                                </li>
+                            </if>
+                        </foreach>
+                    </ul>
+                    <ul>
+                        <foreach name="spes" item="row">
+                            <if condition="$key gt 5 AND $key elt 8">
+                                <li>
+                                    <a href="__URL__/specialinfo/id/<{$row['id']}>"><img src="<{$row['img']}>"></a>
+                                    <p><{$row['name']}></p>
+                                </li>
+                            </if>
+                        </foreach>
+                    </ul>
+                    </div>
+                    <ul class="special_page">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!--专题end-->
+                <div class="clear"></div>
+            </section>
+            <section>
+                <!--文章列表start-->
+                <foreach name="arts" item="row2">
+                    <if condition="count($row2['img']) egt 3">
+                        <div class="item">
+                            <a href="__URL__/artcon/id/<{$row2['id']}>">
+                                <p><{:mb_substr($row2['title'],0,59,'utf-8')}></p>
+                                <figure>
+                                    <{$row2['img'][0]}>
+                                    <{$row2['img'][1]}>
+                                    <{$row2['img'][2]}>
+
+                                </figure>
+                            </a>
+                            <span class="category"><{$row2['cate']}></span>
+                            <i></i><span class="source"><{:htmlspecialchars_decode($row2['source'])}></span><i></i>
+                            <time><{:date('Y-m-d H:i',$row2['inputtime'])}></time>
+                            <div class="clear"></div>
+                        </div>
+                        <elseif condition="count($row2['img']) egt 1"/>
+                        <div class="item_b">
+                            <figure>
+                                <a href="__URL__/artcon/id/<{$row2['id']}>">
+                                    <{$row2['img'][0]}>
+                                </a>
+                            </figure>
+                            <div class="item_b_right">
+                                <p><a href="__URL__/artcon/id/<{$row2['id']}>"><{:mb_substr($row2['title'],0,59,'utf-8')}></a>
+                                </p>
+                                <span class="category"><{$row2['cate']}></span><i></i>
+                                <span class="source"><{:htmlspecialchars_decode($row2['source'])}></span><i></i>
+                                <time><{:date('Y-m-d H:i',$row2['inputtime'])}></time>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </if>
+                </foreach>
+                <div class="showpage"><{$show}><div class="clear"></div></div>
+                <!--文章列表end-->
+            </section>
+        </article>
+        <!--中间主体部分end-->
+        <!--右边栏start-->
+        <aside class="right_column">
+            <!--热门新闻start-->
+            <section class="hot">
+                <div class="hot_heading">
+                    <span>热门新闻</span>
+                    <a href="javascript:" class="change">
+                        <i></i>
+                        <span>换一组</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+                <div class="box" num="<{$count}>">
+                    <foreach name="remens" item="row">
+                        <if condition="$key eq 0">
+                            <figure class="hot_fr">
+                                <a href="__URL__/artcon/id/<{$row['id']}>">
+                                    <{$row['img']}>
+                                    <figcaption><{$row['title']}></figcaption>
+                                </a>
+                            </figure>
+                            <else/>
+                            <figure class="hot_item">
+                                <a href="__URL__/artcon/id/<{$row['id']}>"> <{$row['img']}></a>
+                                <figcaption>
+                                    <p><a href="__URL__/artcon/id/<{$row['id']}>"> <{:mb_substr($row['title'],0,60,'utf-8')}></a></p>
+                                    <span class="category"><{$row['cate']}></span><i></i>
+                                    <span class="source"><{:htmlspecialchars_decode($row['source'])}></span>
+                                </figcaption>
+                                <div class="clear"></div>
+                            </figure>
+                        </if>
+                    </foreach>
+                </div>
+            </section>
+            <!--热门新闻end-->
+            <!--广告位1 start-->
+
+            <!--广告位1 end-->
+            <section class="popular_searches">
+                <div class="hot_heading">
+                    <span>热门搜索</span>
+                    <div class="clear"></div>
+                </div>
+                <ul>
+                    <foreach name="res" item="row">
+                        <li><i></i><a href="__URL__/artcon/id/<{$row['id']}>"><{$row['title']}></a>
+                            <div class="clear"></div>
+                        </li>
+                    </foreach>
+                </ul>
+            </section>
+        </aside>
+        <!--右边栏end-->
+    </article>
+    <div class="clear"></div>
+</div>
+<include file="Public:footer"/>

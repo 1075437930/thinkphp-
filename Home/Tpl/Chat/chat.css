@@ -1,0 +1,299 @@
+/*聊天弹窗start*/
+*{
+    margin: 0;
+    padding: 0;
+    outline:none ;
+    text-decoration: none;
+    font-family: '微软雅黑';
+    border: 0;
+}
+.clear{
+    clear: both;
+}
+.chat{
+    position: fixed;
+    width: 600px;
+    height: 550px;
+    background-color: #ffffff;
+    top: 0;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: 40px;
+    z-index: 22;
+    border-radius: 10px;
+    display: none;
+}
+.chat_heading{
+    height: 50px;
+    border-bottom: 1px solid #E6ECF0;
+    line-height: 50px;
+}
+.chat_heading span {
+    color: #6F7D86;
+    font-size: 20px;
+    margin-left: 14px;
+}
+.chat_close {
+    color: #657786;
+    float: right;
+    width: 20px;
+    margin-top: 16px;
+    margin-right: 13px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.chat_heading button {
+    float: right;
+    margin-top: 11px;
+    width: 100px;
+    border-radius: 8px;
+    margin-right: 20px;
+    height: 30px;
+    background-color: #1C9DEC;
+    color: #ffffff;
+    cursor: pointer;
+}
+.chat_item_box figure {
+    border-bottom: 1px solid #E6ECF0;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.chat_item_box figure:hover{
+    background-color: #F5F8FA;
+}
+.chat_item_box figure img,.chat_item_box figure figcaption{
+    float: left;
+}
+.chat_item_box figure img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 18px;
+}
+.chat_item_box figure figcaption {
+    color: #14171A;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.chat_item_box {
+    height: 486px;
+    overflow-y: scroll;
+}
+.chatwindow_heading{
+    border-bottom: 1px solid #E6ECF0;
+    height: 63px;
+}
+
+.newchat {
+    margin-left: 202px!important;
+}
+
+.chatwindow_heading img {
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 175px;
+    margin-top: 13px;
+}
+.chatwindow_heading span {
+    font-size: 20px;
+    color: #66757F;
+    float: left;
+    margin-top: 16px;
+    margin-left: 13px;
+}
+
+.chatwindow_heading .reback {
+    background: url("2017-04-30_222524.png") no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 27px;
+    float: left;
+    margin-left: 29px;
+    cursor: pointer;
+}
+
+.chat_con {
+    width: 600px;
+    height: 448px;
+    overflow-y: scroll;
+}
+.chat_bot {
+    background-color: #E8F5FD;
+    border-radius: 11px;
+    position: relative;
+}
+#facebox3 {
+    background-color: #ffffff;
+    top: -186px!important;
+    left: 486px!important;
+}
+#saytext3,.chat_expression,.chat_expression+button{
+    float: left;
+}
+div#saytext3 {
+    width: 461px;
+    background-color: white;
+    margin-top: 8px;
+    border: 1px solid #C6E7FB;
+    margin-left: 13px;
+    font-size: 13px;
+    line-height: 24px;
+    text-indent: 10px;
+    height: 50px;
+    overflow-y: scroll;
+}
+.chat_expression+button {
+    background-color: #2F9AC3;
+    color: white;
+    width: 70px;
+    height: 28px;
+    margin-left: 12px;
+    margin-top: 9px;
+    cursor: pointer;
+}
+.chat_expression {
+    background: url(d-icon.png) no-repeat;
+    background-position: -214px 0px;
+    display: inline-block;
+    width: 20px;
+    margin-top: 9px;
+    height: 20px;
+    margin-left: 9px;
+    cursor: pointer;
+}
+.chat_item_from {
+    margin-top: 16px;
+}
+.chat_item_from .headport{
+    float: right;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    margin: 0 12px;
+}
+.chat_item_from .chat_text div {
+    background-color: #1DA1F2;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: right;
+    max-width: 400px;
+}
+.chat_item_from .chat_text time {
+    float: right;
+    color: #657786;
+    font-size: 13px;
+}
+.chat_item_from .chat_text{
+    float: right;
+}
+
+.chat_item_to {
+    margin-top: 16px;
+}
+.chat_item_to .headport{
+    float: left;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    margin: 0 12px;
+}
+.chat_item_to .chat_text div {
+    background-color: #1DA1F2;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 5px;
+    text-align:left;
+    max-width: 400px;
+}
+.chat_item_to .chat_text time {
+    float: left;
+    color: #657786;
+    font-size: 13px;
+}
+.chat_item_to .chat_text{
+    float:left;
+}
+
+.chatwindow_heading+p {
+    color: #14171A;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.chat .touser {
+    border: 1px solid #97E3FF;
+    margin-left: 31px;
+    width: 462px;
+    height: 31px;
+}
+
+.user_item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    float: left;
+    margin-left: 15px;
+}
+
+.user_item span {
+    float: left;
+    margin-left: 11px;
+    font-weight: bold;
+}
+
+.user_item {
+    margin-top: 11px;
+    cursor: pointer;
+}
+.user_item:hover{
+    background-color: #F5F8FA;
+}
+.userbox {
+    height: 365px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.next {
+    background-color: #1C9FEF;
+    color: #ffffff;
+    margin-top: 13px;
+    float: right;
+    margin-right: 19px;
+    width: 100px;
+    height: 29px;
+    cursor: pointer;
+}
+.chat_modal{
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 19;
+    display: none;
+}
+.chat_tip{
+    position: fixed;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+    z-index: 24;
+}
+/*聊天弹窗end*/
